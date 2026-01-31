@@ -1,0 +1,183 @@
+/*
+ * Micro-Interactions System
+ * Section 26: Consistent interaction feedback across all elements
+ * Response time target: < 100ms
+ */
+
+/* ============================================
+   Focus Ring Utilities
+   ============================================ */
+
+/* Standard focus ring for buttons and interactive elements */
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+}
+
+/* Subtle focus ring for links and smaller elements */
+.focus-ring-subtle {
+  @apply focus:outline-none focus-visible:ring-1 focus-visible:ring-velex-blue/50 focus-visible:ring-offset-1 focus-visible:ring-offset-void;
+}
+
+/* Inset focus ring for cards and contained elements */
+.focus-ring-inset {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-velex-blue;
+}
+
+/* ============================================
+   Button Micro-Interactions
+   ============================================ */
+
+/* Primary button base interactions */
+.btn-primary {
+  @apply transition-all duration-150 ease-out;
+  @apply hover:scale-[1.02] active:scale-[0.98];
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+}
+
+/* Secondary button base interactions */
+.btn-secondary {
+  @apply transition-all duration-150 ease-out;
+  @apply hover:border-velex-blue/50 active:scale-[0.98];
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+}
+
+/* Icon button interactions */
+.btn-icon {
+  @apply transition-all duration-150 ease-out;
+  @apply hover:scale-110 active:scale-95;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+}
+
+/* ============================================
+   Link Interactions
+   ============================================ */
+
+/* Underline draw animation */
+.link-underline {
+  @apply relative;
+}
+
+.link-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-px bg-velex-blue transition-all duration-300 ease-out;
+}
+
+.link-underline:hover::after {
+  @apply w-full;
+}
+
+.link-underline:focus-visible::after {
+  @apply w-full;
+}
+
+/* ============================================
+   Input Interactions
+   ============================================ */
+
+/* Input hover glow */
+.input-interactive {
+  @apply transition-all duration-200 ease-out;
+}
+
+.input-interactive:hover:not(:focus):not(:disabled) {
+  @apply border-titanium/50;
+}
+
+/* ============================================
+   Card Interactions
+   ============================================ */
+
+/* Card lift on hover */
+.card-interactive {
+  @apply transition-all duration-300 ease-out;
+}
+
+.card-interactive:hover {
+  @apply -translate-y-1;
+  box-shadow: 0 10px 30px -10px rgba(0, 212, 255, 0.15);
+}
+
+.card-interactive:active {
+  @apply translate-y-0;
+}
+
+/* Keyboard focus for cards */
+.card-focusable {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+}
+
+/* ============================================
+   Toggle/Chip Interactions
+   ============================================ */
+
+.chip-interactive {
+  @apply transition-all duration-150 ease-out;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void;
+}
+
+/* ============================================
+   Accordion Interactions
+   ============================================ */
+
+.accordion-trigger {
+  @apply transition-colors duration-200 ease-out;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-velex-blue;
+}
+
+/* ============================================
+   Press Feedback (for touch devices)
+   ============================================ */
+
+@media (hover: none) {
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-icon:active {
+    @apply scale-95 opacity-80;
+  }
+}
+
+/* ============================================
+   Ripple Effect Animation
+   ============================================ */
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 0.6s ease-out forwards;
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-icon,
+  .link-underline::after,
+  .input-interactive,
+  .card-interactive {
+    @apply transition-none;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-icon:hover,
+  .card-interactive:hover {
+    @apply transform-none;
+    box-shadow: none;
+  }
+
+  .animate-ripple {
+    animation: none;
+  }
+}
