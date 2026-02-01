@@ -2,6 +2,7 @@ import {
   Hero,
   ProblemSection,
   SolutionSection,
+  AboutSection,
   CapabilitiesSection,
   ProcessSection,
   ShowcaseSection,
@@ -25,6 +26,7 @@ export default function Home() {
         <Hero />
       <ProblemSection />
       <SolutionSection />
+      <AboutSection />
       <CapabilitiesSection />
       <ProcessSection />
       <ShowcaseSection />

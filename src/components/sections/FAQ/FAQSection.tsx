@@ -52,6 +52,57 @@ const FAQ_ITEMS: FAQItem[] = [
     question: "What if I'm not satisfied with the results?",
     answer: "Unlimited revisions until approved. We don't consider a project complete until you do.",
   },
+  {
+    id: 9,
+    question: 'What simulation depth do I need?',
+    answer: `For most projects, Standard (1x) depth is sufficient. Here's what each level provides:
+
+• Standard (1x): 10,000–100,000 simulations per part. Covers typical stress, thermal, and flow analysis. Recommended for most projects.
+
+• Enhanced (2x): ~200,000 simulations. Better optimization, more design iterations. Good for performance-critical parts.
+
+• Deep (4x): ~1,000,000 simulations. Comprehensive analysis with extensive parameter sweeps. For complex assemblies or high-stakes applications.
+
+• Maximum (10x): 5–10 million simulations. Aerospace/defense grade. Only needed for mission-critical systems (satellites, aircraft, medical implants). Requires consultation—most projects don't need this level.
+
+When in doubt, start with Standard. We'll recommend upgrading if your project needs it.`,
+  },
+  {
+    id: 10,
+    question: 'Can you handle complete builds with multiple parts?',
+    answer: `Yes! For complete builds with multiple parts:
+
+1. Select "Complete Build" in the quote calculator
+2. Tell us how many parts and describe the assembly
+3. We'll review your requirements and provide a custom timeline and quote
+
+Multi-part builds take longer but benefit from system-level optimization—we can analyze how parts interact under load, thermal expansion, and vibration.`,
+  },
+  {
+    id: 11,
+    question: 'Why are your prices lower than traditional FEA consultants?',
+    answer: `Three reasons:
+
+1. GPU Acceleration: Our simulations run 100x faster on GPUs, reducing compute costs dramatically.
+
+2. Streamlined Process: No lengthy proposal processes or enterprise overhead. You describe the project, we get to work.
+
+3. Volume: We handle many projects efficiently rather than a few projects slowly.
+
+Traditional consultants charge $150-300/hour and take weeks. We deliver in days at a fraction of the cost.`,
+  },
+  {
+    id: 12,
+    question: 'Is my design data secure?',
+    answer: `Absolutely. We take IP protection seriously:
+
+• NDA Available: We sign mutual NDAs before any project begins
+• Encrypted Transfer: All files transferred via encrypted channels
+• No Third Parties: Your data never leaves our systems
+• Deletion Policy: We delete all project files within 30 days of completion (unless you request otherwise)
+
+Many of our clients work in defense, aerospace, and medical—industries where confidentiality is non-negotiable.`,
+  },
 ]
 
 export function FAQSection() {

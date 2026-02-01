@@ -1,6 +1,7 @@
 export { Hero } from './Hero'
 export { ProblemSection } from './Problem'
 export { SolutionSection } from './Solution'
+export { AboutSection } from './About'
 export { CapabilitiesSection } from './Capabilities'
 export { ProcessSection } from './Process'
 export { ShowcaseSection } from './Showcase'
