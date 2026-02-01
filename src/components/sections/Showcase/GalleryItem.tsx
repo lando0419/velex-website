@@ -2,12 +2,28 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Clock, CheckCircle2, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { GalleryItem as GalleryItemType } from './ShowcaseSection'
 
 interface GalleryItemProps {
   item: GalleryItemType
   onClick: () => void
+}
+
+function StatusIndicator({ status }: { status: GalleryItemType['status'] }) {
+  const config = {
+    'complete': { icon: CheckCircle2, className: 'bg-success-green text-void', pulse: false },
+    'in-progress': { icon: Loader2, className: 'bg-warning-orange text-void', pulse: true },
+    'coming-soon': { icon: Clock, className: 'bg-titanium/80 text-void', pulse: false },
+  }
+  const { icon: Icon, className, pulse } = config[status]
+
+  return (
+    <span className={cn('flex items-center justify-center w-6 h-6 rounded-full', className)}>
+      <Icon className={cn('w-3.5 h-3.5', pulse && 'animate-spin')} />
+    </span>
+  )
 }
 
 export function GalleryItem({ item, onClick }: GalleryItemProps) {
@@ -23,16 +39,25 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
     }
   }
 
-  // Generate a consistent gradient based on category
+  // Generate a consistent gradient based on category (part types)
   const gradientMap: Record<string, string> = {
-    structural: 'from-stress-red/20 to-warning-orange/20',
-    thermal: 'from-warning-orange/20 to-success-green/20',
-    cfd: 'from-velex-blue/20 to-electric-cyan/20',
-    modal: 'from-deep-purple/20 to-velex-blue/20',
-    optimization: 'from-success-green/20 to-velex-blue/20',
+    robotics: 'from-velex-blue/20 to-electric-cyan/20',
+    drones: 'from-warning-orange/20 to-stress-red/20',
+    automotive: 'from-stress-red/20 to-warning-orange/20',
+    aerospace: 'from-deep-purple/20 to-velex-blue/20',
+    ev: 'from-success-green/20 to-velex-blue/20',
+    medical: 'from-electric-cyan/20 to-success-green/20',
+    hobby: 'from-warning-orange/20 to-success-green/20',
+    industrial: 'from-titanium/20 to-velex-blue/20',
   }
 
   const gradient = gradientMap[item.category] || 'from-titanium/20 to-void'
+
+  const statusLabel = {
+    'complete': 'View Demo',
+    'in-progress': 'In Progress',
+    'coming-soon': 'Coming Soon',
+  }
 
   return (
     <motion.div
@@ -44,11 +69,12 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
       className={cn(
         'group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer',
         'border border-titanium/20 bg-void',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void'
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
+        item.status === 'coming-soon' && 'opacity-70'
       )}
       tabIndex={0}
       role="button"
-      aria-label={`View ${item.title} case study`}
+      aria-label={`View ${item.title} demo`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsFocused(true)}
@@ -73,11 +99,12 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-transparent" />
 
-      {/* Category badge */}
-      <div className="absolute top-3 left-3">
-        <span className="px-2 py-1 text-xs font-medium text-velex-blue bg-void/80 rounded-full border border-velex-blue/30">
-          {item.category.toUpperCase()}
+      {/* Top badges row */}
+      <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+        <span className="px-2 py-1 text-xs font-medium text-velex-blue bg-void/80 rounded-full border border-velex-blue/30 capitalize">
+          {item.category}
         </span>
+        <StatusIndicator status={item.status} />
       </div>
 
       {/* Content */}
@@ -108,8 +135,13 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
         animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.8 }}
         transition={{ duration: 0.2 }}
       >
-        <span className="px-4 py-2 text-sm font-medium text-void bg-velex-blue rounded-full">
-          View Case Study
+        <span className={cn(
+          'px-4 py-2 text-sm font-medium rounded-full',
+          item.status === 'complete' ? 'text-void bg-velex-blue' :
+          item.status === 'in-progress' ? 'text-void bg-warning-orange' :
+          'text-void bg-titanium'
+        )}>
+          {statusLabel[item.status]}
         </span>
       </motion.div>
     </motion.div>

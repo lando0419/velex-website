@@ -79,9 +79,13 @@ export function CapabilitiesSection() {
             THE <span className="text-velex-blue">ARSENAL</span>
           </h2>
           <p className="text-xl text-titanium max-w-2xl mx-auto">
-            Six capabilities. One platform.
-            Everything you need for engineering simulation.
+            Every project includes all six simulation types.
+            No picking and choosing—we run them all.
           </p>
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-velex-blue/10 border border-velex-blue/30 rounded-full">
+            <span className="text-velex-blue font-medium">✓ All included</span>
+            <span className="text-titanium/70 text-sm">in every engineering package</span>
+          </div>
         </motion.div>
 
         {/* Capabilities Grid */}

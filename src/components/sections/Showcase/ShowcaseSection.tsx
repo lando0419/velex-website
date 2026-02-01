@@ -4,8 +4,27 @@ import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { FilterBar } from './FilterBar'
 import { MasonryGrid } from './MasonryGrid'
-import { GalleryModal } from './GalleryModal'
+import { DemoModal } from './DemoModal'
 import { useReducedMotion } from '@/hooks'
+
+export interface DemoImage {
+  src: string
+  alt: string
+  caption?: string
+}
+
+export interface DemoDocument {
+  title: string
+  type: 'pdf' | 'spec' | 'report'
+  url: string
+}
+
+export interface DemoDownload {
+  title: string
+  format: string
+  size: string
+  url: string
+}
 
 export interface GalleryItem {
   id: number
@@ -13,99 +32,132 @@ export interface GalleryItem {
   category: string
   description: string
   image: string
+  status: 'complete' | 'in-progress' | 'coming-soon'
   stats?: Record<string, string>
+  // Enhanced demo content
+  images?: DemoImage[]
+  documents?: DemoDocument[]
+  downloads?: DemoDownload[]
+  analysisData?: {
+    structural?: Record<string, string>
+    thermal?: Record<string, string>
+    cfd?: Record<string, string>
+    modal?: Record<string, string>
+  }
 }
 
 const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 1,
-    title: 'Aerospace Landing Gear',
-    category: 'structural',
-    description: 'High-cycle fatigue analysis for critical aircraft components. Optimized weight while exceeding safety margins.',
-    image: '/renders/showcase/landing-gear.webp',
-    stats: { stress: '287 MPa', cycles: '10M+', weight: '-23%' },
+    title: 'UR10e Robot Adapter',
+    category: 'robotics',
+    description: 'Custom end-effector adapter for Universal Robots UR10e. Designed for high-precision pick-and-place applications with integrated cable management.',
+    image: '/demos/ur10e-adapter/hero.webp',
+    status: 'in-progress',
+    stats: { payload: '12.5 kg', stiffness: '+34%', weight: '0.42 kg' },
+    images: [
+      { src: '/demos/ur10e-adapter/render-1.webp', alt: 'UR10e Adapter Isometric View' },
+      { src: '/demos/ur10e-adapter/render-2.webp', alt: 'UR10e Adapter Side View' },
+      { src: '/demos/ur10e-adapter/stress-map.webp', alt: 'Stress Distribution Analysis' },
+    ],
+    documents: [
+      { title: 'Design Specifications', type: 'spec', url: '/demos/ur10e-adapter/specs.pdf' },
+      { title: 'Analysis Report', type: 'report', url: '/demos/ur10e-adapter/report.pdf' },
+    ],
+    downloads: [
+      { title: 'Blender File (.blend)', format: 'BLEND', size: '24.3 MB', url: '/demos/ur10e-adapter/model.blend' },
+      { title: 'STEP File', format: 'STEP', size: '8.1 MB', url: '/demos/ur10e-adapter/model.step' },
+    ],
+    analysisData: {
+      structural: { maxStress: '124 MPa', FoS: '2.8', maxDeflection: '0.12mm' },
+      thermal: { maxTemp: '42°C', gradient: '8°C', dissipation: '4.2W' },
+      modal: { mode1: '287 Hz', mode2: '412 Hz', dampingRatio: '2.1%' },
+    },
   },
   {
     id: 2,
-    title: 'Automotive Suspension',
-    category: 'structural',
-    description: 'Multi-load case analysis for performance suspension system. Validated under extreme track conditions.',
-    image: '/renders/showcase/suspension.webp',
-    stats: { loads: '12 cases', stiffness: '+15%', mass: '4.2 kg' },
+    title: 'Racing Drone Frame',
+    category: 'drones',
+    description: 'Lightweight 5-inch racing drone frame optimized for FPV competition. Carbon fiber layup with integrated vibration dampening.',
+    image: '/demos/drone-frame/hero.webp',
+    status: 'coming-soon',
+    stats: { weight: '128g', thrust: '4:1', durability: 'A+' },
   },
   {
     id: 3,
-    title: 'Drone Frame Optimization',
-    category: 'optimization',
-    description: 'Topology optimization for maximum stiffness-to-weight ratio. Additive manufacturing ready.',
-    image: '/renders/showcase/drone-frame.webp',
-    stats: { reduction: '47%', stiffness: '98%', iterations: '127' },
+    title: 'Suspension A-Arm',
+    category: 'automotive',
+    description: 'Performance suspension component for track-day vehicles. Topology-optimized for minimum weight with maximum stiffness.',
+    image: '/demos/suspension-arm/hero.webp',
+    status: 'coming-soon',
+    stats: { reduction: '-42%', stiffness: '+18%', cycles: '500k+' },
   },
   {
     id: 4,
-    title: 'Heat Exchanger Analysis',
-    category: 'thermal',
-    description: 'Conjugate heat transfer simulation for compact heat exchanger design. Optimized fin geometry.',
-    image: '/renders/showcase/heat-exchanger.webp',
-    stats: { transfer: '+34%', deltaT: '42°C', flow: '2.4 L/min' },
+    title: 'Satellite Bracket',
+    category: 'aerospace',
+    description: 'Flight-qualified mounting bracket for CubeSat payloads. Designed for space environment with thermal cycling considerations.',
+    image: '/demos/satellite-bracket/hero.webp',
+    status: 'coming-soon',
+    stats: { mass: '86g', tempRange: '-40°C to +85°C', FoS: '3.2' },
   },
   {
     id: 5,
-    title: 'Aerodynamic Fairing',
-    category: 'cfd',
-    description: 'External aerodynamics study for reduced drag coefficient. Wind tunnel validated results.',
-    image: '/renders/showcase/fairing.webp',
-    stats: { cd: '0.28', downforce: '+18%', velocity: '180 km/h' },
+    title: 'Industrial Gripper',
+    category: 'robotics',
+    description: 'Pneumatic parallel gripper for manufacturing automation. High-cycle life with integrated force sensing mounting.',
+    image: '/demos/gripper/hero.webp',
+    status: 'coming-soon',
+    stats: { force: '120N', cycles: '2M+', repeatability: '±0.02mm' },
   },
   {
     id: 6,
-    title: 'Precision Instrument Modal',
-    category: 'modal',
-    description: 'Natural frequency analysis for vibration-sensitive optical equipment. Isolation system design.',
-    image: '/renders/showcase/instrument.webp',
-    stats: { mode1: '45 Hz', damping: '2.3%', isolation: '99%' },
+    title: 'E-Bike Motor Mount',
+    category: 'ev',
+    description: 'Mid-drive motor integration bracket for electric bicycle conversion. Heat-dissipating design with vibration isolation.',
+    image: '/demos/ebike-mount/hero.webp',
+    status: 'coming-soon',
+    stats: { power: '750W', cooling: '+45%', weight: '0.34 kg' },
   },
   {
     id: 7,
-    title: 'Lightweight Bracket',
-    category: 'optimization',
-    description: 'Generative design for aerospace bracket. 60% weight reduction with improved load paths.',
-    image: '/renders/showcase/bracket.webp',
-    stats: { original: '1.2 kg', optimized: '0.48 kg', FoS: '2.1' },
+    title: 'Prosthetic Socket',
+    category: 'medical',
+    description: 'Custom-fit below-knee prosthetic socket. Patient-specific design from 3D scan data with comfort optimization.',
+    image: '/demos/prosthetic/hero.webp',
+    status: 'coming-soon',
+    stats: { fitScore: '98%', weight: '185g', comfort: 'A+' },
   },
   {
     id: 8,
-    title: 'Electronic Enclosure',
-    category: 'thermal',
-    description: 'Thermal management for high-power electronics. Natural convection and conduction paths.',
-    image: '/renders/showcase/enclosure.webp',
-    stats: { power: '150W', maxTemp: '72°C', ambient: '40°C' },
+    title: 'RC Car Chassis',
+    category: 'hobby',
+    description: '1/10 scale RC competition chassis plate. Impact-resistant design with optimized flex characteristics for handling.',
+    image: '/demos/rc-chassis/hero.webp',
+    status: 'coming-soon',
+    stats: { flex: 'Tuned', impact: '+60%', weight: '142g' },
   },
   {
     id: 9,
-    title: 'Valve Body CFD',
-    category: 'cfd',
-    description: 'Internal flow analysis for hydraulic valve. Pressure drop optimization and cavitation prediction.',
-    image: '/renders/showcase/valve.webp',
-    stats: { flow: '45 L/min', deltaP: '0.8 bar', cv: '12.4' },
-  },
-  {
-    id: 10,
-    title: 'Turbine Blade Modal',
-    category: 'modal',
-    description: 'Campbell diagram analysis for rotating machinery. Resonance avoidance across operating range.',
-    image: '/renders/showcase/turbine.webp',
-    stats: { rpm: '12,000', modes: '8', margin: '>15%' },
+    title: 'Turbine Housing',
+    category: 'industrial',
+    description: 'High-temperature turbine scroll housing for turbocharger application. CFD-optimized flow paths with thermal management.',
+    image: '/demos/turbine-housing/hero.webp',
+    status: 'coming-soon',
+    stats: { flow: '+12%', temp: '950°C', efficiency: '87%' },
   },
 ]
 
 export const FILTER_OPTIONS = [
   { id: 'all', label: 'All' },
-  { id: 'structural', label: 'Structural' },
-  { id: 'thermal', label: 'Thermal' },
-  { id: 'cfd', label: 'CFD' },
-  { id: 'modal', label: 'Modal' },
-  { id: 'optimization', label: 'Optimization' },
+  { id: 'robotics', label: 'Robotics' },
+  { id: 'drones', label: 'Drones' },
+  { id: 'automotive', label: 'Automotive' },
+  { id: 'aerospace', label: 'Aerospace' },
+  { id: 'ev', label: 'EV & E-Mobility' },
+  { id: 'medical', label: 'Medical' },
+  { id: 'hobby', label: 'Hobby & RC' },
+  { id: 'industrial', label: 'Industrial' },
 ]
 
 export function ShowcaseSection() {
@@ -134,10 +186,10 @@ export function ShowcaseSection() {
           transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-            OUR <span className="text-velex-blue">WORK</span>
+            DEMO <span className="text-velex-blue">PROJECTS</span>
           </h2>
           <p className="text-xl text-titanium max-w-2xl mx-auto">
-            Real projects. Real results. Real engineering.
+            Real engineering. Real parts. Full simulation packages you can download and explore.
           </p>
         </motion.div>
 
@@ -155,7 +207,7 @@ export function ShowcaseSection() {
         />
 
         {selectedItem && (
-          <GalleryModal
+          <DemoModal
             item={selectedItem}
             onClose={() => setSelectedItem(null)}
           />
