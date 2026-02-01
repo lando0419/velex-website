@@ -13,6 +13,21 @@ const CAPABILITIES: Capability[] = [
     features: ['Static analysis', 'Fatigue prediction', 'Factor of safety', 'Material optimization'],
     stats: { peakStress: '342 MPa', safetyFactor: '2.4', solveTime: '127s' },
     icon: 'structural',
+    extendedInfo: {
+      longDescription: 'Our GPU-accelerated Finite Element Analysis identifies stress concentrations, predicts failure points, and optimizes material usage before your part ever leaves the computer. We analyze real-world loading conditions to ensure your design meets safety margins.',
+      useCases: [
+        'Load-bearing brackets and mounts',
+        'Pressure vessels and enclosures',
+        'Suspension and chassis components',
+        'Aerospace structural members',
+      ],
+      technicalDetails: [
+        'Linear and non-linear static analysis',
+        'Contact and bolted joint simulation',
+        'Composite layup optimization',
+        'Fatigue life prediction (S-N curves)',
+      ],
+    },
   },
   {
     id: 'thermal',
@@ -21,6 +36,21 @@ const CAPABILITIES: Capability[] = [
     features: ['Steady-state analysis', 'Transient simulation', 'Conjugate heat transfer', 'Thermal stress coupling'],
     stats: { maxTemp: '87°C', heatFlux: '2.4 kW/m²', thermalResistance: '0.12 K/W' },
     icon: 'thermal',
+    extendedInfo: {
+      longDescription: 'We simulate heat flow through your design to prevent overheating, optimize cooling paths, and predict thermal expansion. Critical for electronics enclosures, heat exchangers, and any component exposed to temperature extremes.',
+      useCases: [
+        'Electronics cooling and heat sinks',
+        'Battery thermal management',
+        'Engine and exhaust components',
+        'LED housings and thermal interfaces',
+      ],
+      technicalDetails: [
+        'Steady-state and transient analysis',
+        'Conjugate heat transfer (solid + fluid)',
+        'Radiation and convection modeling',
+        'Thermal stress coupling with structural',
+      ],
+    },
   },
   {
     id: 'cfd',
@@ -29,6 +59,21 @@ const CAPABILITIES: Capability[] = [
     features: ['External aerodynamics', 'Internal flow', 'Pressure drop analysis', 'Drag optimization'],
     stats: { dragCoefficient: '0.32', maxVelocity: '45 m/s', pressureDrop: '12 Pa' },
     icon: 'cfd',
+    extendedInfo: {
+      longDescription: 'Computational Fluid Dynamics reveals how air and liquids flow around and through your design. We optimize for minimum drag, maximum cooling, or precise flow distribution—before expensive prototypes.',
+      useCases: [
+        'Aerodynamic fairings and spoilers',
+        'HVAC ducts and manifolds',
+        'Drone and UAV frames',
+        'Cooling channels and heat exchangers',
+      ],
+      technicalDetails: [
+        'External aerodynamics (drag, lift, downforce)',
+        'Internal flow and pressure drop',
+        'Turbulence modeling (k-ε, SST)',
+        'Multiphase flow (air + water)',
+      ],
+    },
   },
   {
     id: 'modal',
@@ -37,6 +82,21 @@ const CAPABILITIES: Capability[] = [
     features: ['Natural frequencies', 'Mode shapes', 'Harmonic response', 'Random vibration'],
     stats: { mode1: '124 Hz', mode2: '287 Hz', maxDisplacement: '0.8mm' },
     icon: 'modal',
+    extendedInfo: {
+      longDescription: "We identify your part's natural frequencies to prevent resonance failures. Critical for anything that vibrates, rotates, or experiences dynamic loads. We ensure your design avoids destructive resonance across its operating range.",
+      useCases: [
+        'Motor and pump mounts',
+        'Rotating machinery components',
+        'Vehicle chassis and suspension',
+        'Precision instruments and optics',
+      ],
+      technicalDetails: [
+        'Natural frequency extraction',
+        'Mode shape visualization',
+        'Harmonic response analysis',
+        'Random vibration (PSD) analysis',
+      ],
+    },
   },
   {
     id: 'topology',
@@ -45,6 +105,22 @@ const CAPABILITIES: Capability[] = [
     features: ['Weight reduction', 'Stiffness maximization', 'Manufacturing constraints', 'Multi-objective optimization'],
     stats: { weightReduction: '47%', stiffnessRetained: '98%', iterations: '127' },
     icon: 'topology',
+    extendedInfo: {
+      longDescription: "Our algorithms remove material where it's not needed, creating organic, weight-optimized structures that maintain full strength. The result: parts that are lighter, stiffer, and often impossible to manufacture traditionally.",
+      useCases: [
+        'Aerospace brackets and fittings',
+        'Lightweighting for EV and drones',
+        'Medical implants and prosthetics',
+        'High-performance motorsports parts',
+      ],
+      technicalDetails: [
+        'Density-based optimization (SIMP)',
+        'Multi-objective (weight + stiffness)',
+        'Stress and displacement constraints',
+        'Overhang and minimum thickness for printing',
+      ],
+      manufacturingNote: 'DMLS (Direct Metal Laser Sintering) ONLY. Topology-optimized geometries cannot be CNC machined—they require additive manufacturing. We recommend DMLS printing for all high-end optimized builds.',
+    },
   },
   {
     id: 'multiphysics',
@@ -53,6 +129,21 @@ const CAPABILITIES: Capability[] = [
     features: ['Thermal-structural coupling', 'Fluid-structure interaction', 'Electromagnetic-thermal', 'Full system simulation'],
     stats: { physicsCoupled: '3', convergence: '0.001%', totalSolve: '847s' },
     icon: 'multiphysics',
+    extendedInfo: {
+      longDescription: "Real-world problems don't respect physics boundaries. Our coupled simulations combine thermal, structural, and fluid effects simultaneously for accurate predictions of how your design actually behaves in operation.",
+      useCases: [
+        'Electronics under thermal + vibration load',
+        'Turbocharger housings (heat + flow + stress)',
+        'Battery packs (thermal runaway + structural)',
+        'Aerospace components (all environments)',
+      ],
+      technicalDetails: [
+        'Thermal-structural coupling',
+        'Fluid-structure interaction (FSI)',
+        'Electromagnetic-thermal for motors',
+        'Fully coupled transient analysis',
+      ],
+    },
   },
 ]
 
