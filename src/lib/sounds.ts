@@ -27,4 +27,4 @@ export const SOUND_SPRITES: Record<SoundName, SoundSprite> = {
 export const SOUND_SPRITE_PATH = '/sounds/ui-sounds.mp3'
 
 // Local storage key for sound preference
-export const SOUND_STORAGE_KEY = 'velex-sound-enabled'
+export const SOUND_STORAGE_KEY = 'ixra-sound-enabled'

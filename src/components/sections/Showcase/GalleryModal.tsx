@@ -57,9 +57,9 @@ export function GalleryModal({ item, onClose }: GalleryModalProps) {
   const gradientMap: Record<string, string> = {
     structural: 'from-stress-red/30 to-warning-orange/30',
     thermal: 'from-warning-orange/30 to-success-green/30',
-    cfd: 'from-velex-blue/30 to-electric-cyan/30',
-    modal: 'from-deep-purple/30 to-velex-blue/30',
-    optimization: 'from-success-green/30 to-velex-blue/30',
+    cfd: 'from-ixra-blue/30 to-electric-cyan/30',
+    modal: 'from-deep-purple/30 to-ixra-blue/30',
+    optimization: 'from-success-green/30 to-ixra-blue/30',
   }
 
   const gradient = gradientMap[item.category] || 'from-titanium/30 to-void'
@@ -92,7 +92,7 @@ export function GalleryModal({ item, onClose }: GalleryModalProps) {
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-void/80 border border-titanium/30 text-titanium hover:text-plasma-white hover:border-velex-blue focus-visible:text-plasma-white focus-visible:border-velex-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void transition-colors"
+            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-void/80 border border-titanium/30 text-titanium hover:text-plasma-white hover:border-ixra-blue focus-visible:text-plasma-white focus-visible:border-ixra-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -104,7 +104,7 @@ export function GalleryModal({ item, onClose }: GalleryModalProps) {
           {/* Content */}
           <div className="p-6">
             {/* Category badge */}
-            <span className="inline-block px-3 py-1 text-xs font-medium text-velex-blue bg-velex-blue/10 rounded-full border border-velex-blue/30 mb-4">
+            <span className="inline-block px-3 py-1 text-xs font-medium text-ixra-blue bg-ixra-blue/10 rounded-full border border-ixra-blue/30 mb-4">
               {item.category.toUpperCase()}
             </span>
 
@@ -119,7 +119,7 @@ export function GalleryModal({ item, onClose }: GalleryModalProps) {
               <div className="grid grid-cols-3 gap-4 p-4 bg-titanium/5 rounded-lg border border-titanium/10">
                 {Object.entries(item.stats).map(([key, value]) => (
                   <div key={key} className="text-center">
-                    <p className="font-numbers text-lg text-velex-blue">{value}</p>
+                    <p className="font-numbers text-lg text-ixra-blue">{value}</p>
                     <p className="text-xs text-titanium capitalize">{key}</p>
                   </div>
                 ))}
@@ -128,12 +128,12 @@ export function GalleryModal({ item, onClose }: GalleryModalProps) {
 
             {/* CTA */}
             <div className="mt-6 flex gap-4">
-              <button className="flex-1 px-6 py-3 bg-velex-blue text-void font-medium rounded-lg hover:bg-electric-cyan focus-visible:bg-electric-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void transition-colors">
+              <button className="flex-1 px-6 py-3 bg-ixra-blue text-void font-medium rounded-lg hover:bg-electric-cyan focus-visible:bg-electric-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void transition-colors">
                 Request Similar Analysis
               </button>
               <button
                 onClick={onClose}
-                className="px-6 py-3 border border-titanium/30 text-titanium rounded-lg hover:border-velex-blue hover:text-plasma-white focus-visible:border-velex-blue focus-visible:text-plasma-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void transition-colors"
+                className="px-6 py-3 border border-titanium/30 text-titanium rounded-lg hover:border-ixra-blue hover:text-plasma-white focus-visible:border-ixra-blue focus-visible:text-plasma-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void transition-colors"
               >
                 Close
               </button>

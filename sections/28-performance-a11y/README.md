@@ -55,9 +55,9 @@ Bundle Size:
 ## SEO Meta Tags
 
 ```html
-<title>VELEX | GPU-Accelerated Engineering Simulation</title>
+<title>IXRA | GPU-Accelerated Engineering Simulation</title>
 <meta name="description" content="..." />
-<meta property="og:title" content="VELEX Engineering" />
+<meta property="og:title" content="IXRA Engineering" />
 <meta property="og:description" content="..." />
 <meta property="og:image" content="/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />

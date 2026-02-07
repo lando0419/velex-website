@@ -25,9 +25,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-velex-blue text-void hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] active:shadow-none focus-visible:ring-velex-blue',
+    'bg-ixra-blue text-void hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] active:shadow-none focus-visible:ring-ixra-blue',
   secondary:
-    'bg-transparent border border-velex-blue/50 text-velex-blue hover:bg-velex-blue/10 hover:border-velex-blue hover:scale-[1.02] active:scale-[0.98] active:bg-velex-blue/20 focus-visible:ring-velex-blue',
+    'bg-transparent border border-ixra-blue/50 text-ixra-blue hover:bg-ixra-blue/10 hover:border-ixra-blue hover:scale-[1.02] active:scale-[0.98] active:bg-ixra-blue/20 focus-visible:ring-ixra-blue',
   ghost:
     'bg-transparent text-plasma-white hover:bg-plasma-white/10 hover:scale-[1.02] active:scale-[0.98] active:bg-plasma-white/5 focus-visible:ring-plasma-white',
   danger:

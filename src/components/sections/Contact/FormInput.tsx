@@ -60,7 +60,7 @@ export function FormInput({
             'text-plasma-white placeholder-titanium/50',
             'focus:outline-none',
             disabled && 'opacity-50 cursor-not-allowed',
-            isFocused && 'border-velex-blue shadow-[0_0_10px_rgba(0,212,255,0.2)]',
+            isFocused && 'border-ixra-blue shadow-[0_0_10px_rgba(0,212,255,0.2)]',
             showError && 'border-stress-red',
             isValid && 'border-success-green',
             !isFocused && !showError && !isValid && 'border-titanium/30 hover:border-titanium/50'

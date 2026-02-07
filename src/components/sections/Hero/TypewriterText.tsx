@@ -44,7 +44,7 @@ export function TypewriterText({
     <span className={className} aria-live="polite" aria-atomic="true">
       {displayedText}
       <motion.span
-        className="inline-block w-[2px] h-[1em] bg-velex-blue ml-1 align-middle"
+        className="inline-block w-[2px] h-[1em] bg-ixra-blue ml-1 align-middle"
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
         aria-hidden="true"

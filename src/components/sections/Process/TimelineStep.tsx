@@ -34,7 +34,7 @@ export function TimelineStep({ step, isActive, delay }: TimelineStepProps) {
           'relative w-16 h-16 rounded-full flex items-center justify-center mb-4',
           'border-2 transition-colors duration-300',
           isActive
-            ? 'border-velex-blue bg-velex-blue/10'
+            ? 'border-ixra-blue bg-ixra-blue/10'
             : 'border-titanium/30 bg-void'
         )}
         animate={isActive ? { scale: [1, 1.1, 1] } : {}}
@@ -43,14 +43,14 @@ export function TimelineStep({ step, isActive, delay }: TimelineStepProps) {
         <Icon
           className={cn(
             'w-7 h-7 transition-colors duration-300',
-            isActive ? 'text-velex-blue' : 'text-titanium/50'
+            isActive ? 'text-ixra-blue' : 'text-titanium/50'
           )}
         />
 
         {/* Pulse ring on active */}
         {isActive && (
           <motion.div
-            className="absolute inset-0 rounded-full border-2 border-velex-blue"
+            className="absolute inset-0 rounded-full border-2 border-ixra-blue"
             initial={{ scale: 1, opacity: 0.6 }}
             animate={{ scale: 1.5, opacity: 0 }}
             transition={{ duration: 1, delay: delay + 0.3, ease: 'easeOut' }}
@@ -62,7 +62,7 @@ export function TimelineStep({ step, isActive, delay }: TimelineStepProps) {
       <motion.span
         className={cn(
           'font-numbers text-xs mb-2 transition-colors duration-300',
-          isActive ? 'text-velex-blue' : 'text-titanium/50'
+          isActive ? 'text-ixra-blue' : 'text-titanium/50'
         )}
       >
         0{step.number}

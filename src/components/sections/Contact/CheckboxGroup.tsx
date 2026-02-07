@@ -46,10 +46,10 @@ export function CheckboxGroup({
             className={cn(
               'px-3 py-1.5 rounded-full text-sm font-medium transition-all',
               'border',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
               disabled && 'opacity-50 cursor-not-allowed',
               selected.includes(option.id)
-                ? 'bg-velex-blue text-void border-velex-blue'
+                ? 'bg-ixra-blue text-void border-ixra-blue'
                 : 'bg-transparent text-titanium border-titanium/30 hover:border-titanium/50'
             )}
           >

@@ -10,17 +10,17 @@
 
 /* Standard focus ring for buttons and interactive elements */
 .focus-ring {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
 }
 
 /* Subtle focus ring for links and smaller elements */
 .focus-ring-subtle {
-  @apply focus:outline-none focus-visible:ring-1 focus-visible:ring-velex-blue/50 focus-visible:ring-offset-1 focus-visible:ring-offset-void;
+  @apply focus:outline-none focus-visible:ring-1 focus-visible:ring-ixra-blue/50 focus-visible:ring-offset-1 focus-visible:ring-offset-void;
 }
 
 /* Inset focus ring for cards and contained elements */
 .focus-ring-inset {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-velex-blue;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ixra-blue;
 }
 
 /* ============================================
@@ -31,21 +31,21 @@
 .btn-primary {
   @apply transition-all duration-150 ease-out;
   @apply hover:scale-[1.02] active:scale-[0.98];
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
 }
 
 /* Secondary button base interactions */
 .btn-secondary {
   @apply transition-all duration-150 ease-out;
-  @apply hover:border-velex-blue/50 active:scale-[0.98];
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+  @apply hover:border-ixra-blue/50 active:scale-[0.98];
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
 }
 
 /* Icon button interactions */
 .btn-icon {
   @apply transition-all duration-150 ease-out;
   @apply hover:scale-110 active:scale-95;
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
 }
 
 /* ============================================
@@ -59,7 +59,7 @@
 
 .link-underline::after {
   content: '';
-  @apply absolute bottom-0 left-0 w-0 h-px bg-velex-blue transition-all duration-300 ease-out;
+  @apply absolute bottom-0 left-0 w-0 h-px bg-ixra-blue transition-all duration-300 ease-out;
 }
 
 .link-underline:hover::after {
@@ -103,7 +103,7 @@
 
 /* Keyboard focus for cards */
 .card-focusable {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void;
 }
 
 /* ============================================
@@ -112,7 +112,7 @@
 
 .chip-interactive {
   @apply transition-all duration-150 ease-out;
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void;
 }
 
 /* ============================================
@@ -121,7 +121,7 @@
 
 .accordion-trigger {
   @apply transition-colors duration-200 ease-out;
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-velex-blue;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ixra-blue;
 }
 
 /* ============================================

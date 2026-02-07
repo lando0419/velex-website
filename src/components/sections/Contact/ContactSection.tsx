@@ -18,7 +18,7 @@ export function ContactSection() {
     >
       {/* Subtle glow background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-velex-blue/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-ixra-blue/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 max-w-2xl relative">
@@ -29,7 +29,7 @@ export function ContactSection() {
           transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-            LET&apos;S <span className="text-velex-blue">TALK</span>
+            LET&apos;S <span className="text-ixra-blue">TALK</span>
           </h2>
           <p className="text-xl text-titanium">
             Tell us about your project. We&apos;ll get back to you within 24 hours.

@@ -46,7 +46,7 @@ export function FormTextarea({
           'focus:outline-none',
           disabled && 'opacity-50 cursor-not-allowed',
           isFocused
-            ? 'border-velex-blue shadow-[0_0_10px_rgba(0,212,255,0.2)]'
+            ? 'border-ixra-blue shadow-[0_0_10px_rgba(0,212,255,0.2)]'
             : 'border-titanium/30 hover:border-titanium/50'
         )}
       />

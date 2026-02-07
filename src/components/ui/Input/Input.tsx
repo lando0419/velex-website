@@ -68,7 +68,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               // Default state
               'border-titanium/30',
               // Focus state - the satisfying lift
-              'focus:outline-none focus:border-velex-blue focus:-translate-y-px',
+              'focus:outline-none focus:border-ixra-blue focus:-translate-y-px',
               'focus:shadow-[0_0_0_1px_rgba(0,212,255,0.3)]',
               'motion-reduce:focus:translate-y-0',
               // Filled variant
@@ -110,7 +110,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 isFloating
                   ? 'top-0 -translate-y-1/2 text-xs px-1 bg-void'
                   : 'top-1/2 -translate-y-1/2 text-base',
-                isFocused && !error && !success && 'text-velex-blue',
+                isFocused && !error && !success && 'text-ixra-blue',
                 error && 'text-stress-red',
                 success && 'text-success-green'
               )}

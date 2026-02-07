@@ -39,8 +39,8 @@ export function SolutionSection() {
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] as const }}
         >
           <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-            VELEX{' '}
-            <span className="text-velex-blue">CHANGES THE EQUATION</span>
+            IXRA{' '}
+            <span className="text-ixra-blue">CHANGES THE EQUATION</span>
           </h2>
           <p className="text-xl text-titanium max-w-2xl mx-auto">
             You describe what you need. We design, simulate, validate, and deliver.

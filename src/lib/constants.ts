@@ -1,10 +1,10 @@
 /**
- * VELEX Application Constants
+ * IXRA Application Constants
  * Sacred values - do not modify without explicit approval
  */
 
-export const SITE_NAME = 'VELEX'
-export const SITE_TITLE = 'VELEX | GPU-Accelerated Engineering Simulation'
+export const SITE_NAME = 'IXRA'
+export const SITE_TITLE = 'IXRA | GPU-Accelerated Engineering Simulation'
 export const SITE_DESCRIPTION = 'Precision you can trust. Speed you need.'
 
 export const ANIMATION = {

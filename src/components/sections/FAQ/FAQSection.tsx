@@ -124,7 +124,7 @@ export function FAQSection() {
           transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-            <span className="text-velex-blue">FAQ</span>
+            <span className="text-ixra-blue">FAQ</span>
           </h2>
           <p className="text-xl text-titanium">
             Questions? We&apos;ve got answers.

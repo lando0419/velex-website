@@ -31,7 +31,7 @@
 ## Folder Structure
 
 ```
-velex-website/
+ixra-website/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── layout.tsx
@@ -113,7 +113,7 @@ velex-website/
 
 ```bash
 # Create project
-npx create-next-app@latest velex-website --typescript --tailwind --eslint --app --src-dir
+npx create-next-app@latest ixra-website --typescript --tailwind --eslint --app --src-dir
 
 # Verify
 npm run build   # Should pass

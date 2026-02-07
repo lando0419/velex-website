@@ -1,30 +1,46 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const NAV_ITEMS = [
-  { href: '#capabilities', label: 'Capabilities' },
-  { href: '#showcase', label: 'Showcase' },
-  { href: '#pricing', label: 'Pricing' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '#capabilities', label: 'Capabilities', sectionId: 'capabilities' },
+  { href: '#showcase', label: 'Showcase', sectionId: 'showcase' },
+  { href: '#pricing', label: 'Pricing', sectionId: 'pricing' },
+  { href: '#faq', label: 'FAQ', sectionId: 'faq' },
 ]
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+
+  const updateActiveSection = useCallback(() => {
+    const sections = NAV_ITEMS.map((item) => item.sectionId)
+    const scrollY = window.scrollY + 120
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sections[i])
+      if (el && el.offsetTop <= scrollY) {
+        setActiveSection(sections[i])
+        return
+      }
+    }
+    setActiveSection('')
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      updateActiveSection()
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [updateActiveSection])
 
   // Close mobile menu on resize
   useEffect(() => {
@@ -68,15 +84,19 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-accent text-xl tracking-[0.2em] text-plasma-white hover:text-velex-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void rounded"
+            className="font-accent text-xl tracking-[0.2em] text-plasma-white hover:text-ixra-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void rounded"
           >
-            VELEX
+            IXRA
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {NAV_ITEMS.map((item) => (
-              <NavLink key={item.href} href={item.href}>
+              <NavLink
+                key={item.href}
+                href={item.href}
+                isActive={activeSection === item.sectionId}
+              >
                 {item.label}
               </NavLink>
             ))}
@@ -88,8 +108,8 @@ export function Header() {
               href="#contact"
               className={cn(
                 'px-4 py-2 rounded text-sm font-medium transition-all duration-200',
-                'bg-velex-blue text-void hover:bg-electric-cyan',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void'
+                'bg-ixra-blue text-void hover:bg-electric-cyan',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void'
               )}
             >
               Get a Quote
@@ -99,7 +119,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-plasma-white hover:text-velex-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue rounded"
+            className="md:hidden p-2 text-plasma-white hover:text-ixra-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue rounded"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
@@ -141,7 +161,12 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-headline text-plasma-white hover:text-velex-blue transition-colors"
+                  className={cn(
+                    'text-2xl font-headline transition-colors',
+                    activeSection === item.sectionId
+                      ? 'text-ixra-blue'
+                      : 'text-plasma-white hover:text-ixra-blue'
+                  )}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.05 }}
@@ -153,7 +178,7 @@ export function Header() {
               <motion.a
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-4 px-8 py-3 bg-velex-blue text-void font-medium rounded-lg hover:bg-electric-cyan transition-colors"
+                className="mt-4 px-8 py-3 bg-ixra-blue text-void font-medium rounded-lg hover:bg-electric-cyan transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -171,20 +196,29 @@ export function Header() {
 interface NavLinkProps {
   href: string
   children: React.ReactNode
+  isActive?: boolean
 }
 
-function NavLink({ href, children }: NavLinkProps) {
+function NavLink({ href, children, isActive }: NavLinkProps) {
   return (
     <a
       href={href}
       className={cn(
-        'group relative text-sm text-titanium hover:text-plasma-white transition-colors duration-200',
-        'focus-visible:outline-none focus-visible:text-plasma-white'
+        'group relative text-sm transition-colors duration-200',
+        'focus-visible:outline-none',
+        isActive
+          ? 'text-plasma-white'
+          : 'text-titanium hover:text-plasma-white focus-visible:text-plasma-white'
       )}
     >
       {children}
       {/* Underline animation */}
-      <span className="absolute -bottom-1 left-0 w-0 h-px bg-velex-blue transition-all duration-300 group-hover:w-full group-focus-visible:w-full" />
+      <span
+        className={cn(
+          'absolute -bottom-1 left-0 h-px bg-ixra-blue transition-all duration-300',
+          isActive ? 'w-full' : 'w-0 group-hover:w-full group-focus-visible:w-full'
+        )}
+      />
     </a>
   )
 }

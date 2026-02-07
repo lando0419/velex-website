@@ -55,24 +55,6 @@ const GALLERY_ITEMS: GalleryItem[] = [
     image: '/demos/ur10e-adapter/hero.webp',
     status: 'in-progress',
     stats: { payload: '12.5 kg', stiffness: '+34%', weight: '0.42 kg' },
-    images: [
-      { src: '/demos/ur10e-adapter/render-1.webp', alt: 'UR10e Adapter Isometric View' },
-      { src: '/demos/ur10e-adapter/render-2.webp', alt: 'UR10e Adapter Side View' },
-      { src: '/demos/ur10e-adapter/stress-map.webp', alt: 'Stress Distribution Analysis' },
-    ],
-    documents: [
-      { title: 'Design Specifications', type: 'spec', url: '/demos/ur10e-adapter/specs.pdf' },
-      { title: 'Analysis Report', type: 'report', url: '/demos/ur10e-adapter/report.pdf' },
-    ],
-    downloads: [
-      { title: 'Blender File (.blend)', format: 'BLEND', size: '24.3 MB', url: '/demos/ur10e-adapter/model.blend' },
-      { title: 'STEP File', format: 'STEP', size: '8.1 MB', url: '/demos/ur10e-adapter/model.step' },
-    ],
-    analysisData: {
-      structural: { maxStress: '124 MPa', FoS: '2.8', maxDeflection: '0.12mm' },
-      thermal: { maxTemp: '42°C', gradient: '8°C', dissipation: '4.2W' },
-      modal: { mode1: '287 Hz', mode2: '412 Hz', dampingRatio: '2.1%' },
-    },
   },
   {
     id: 2,
@@ -80,7 +62,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     category: 'drones',
     description: 'Lightweight 5-inch racing drone frame optimized for FPV competition. Carbon fiber layup with integrated vibration dampening.',
     image: '/demos/drone-frame/hero.webp',
-    status: 'coming-soon',
+    status: 'in-progress',
     stats: { weight: '128g', thrust: '4:1', durability: 'A+' },
   },
   {
@@ -89,7 +71,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     category: 'automotive',
     description: 'Performance suspension component for track-day vehicles. Topology-optimized for minimum weight with maximum stiffness.',
     image: '/demos/suspension-arm/hero.webp',
-    status: 'coming-soon',
+    status: 'in-progress',
     stats: { reduction: '-42%', stiffness: '+18%', cycles: '500k+' },
   },
   {
@@ -98,7 +80,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     category: 'aerospace',
     description: 'Flight-qualified mounting bracket for CubeSat payloads. Designed for space environment with thermal cycling considerations.',
     image: '/demos/satellite-bracket/hero.webp',
-    status: 'coming-soon',
+    status: 'in-progress',
     stats: { mass: '86g', tempRange: '-40°C to +85°C', FoS: '3.2' },
   },
   {
@@ -186,7 +168,7 @@ export function ShowcaseSection() {
           transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-            DEMO <span className="text-velex-blue">PROJECTS</span>
+            DEMO <span className="text-ixra-blue">PROJECTS</span>
           </h2>
           <p className="text-xl text-titanium max-w-2xl mx-auto">
             Real engineering. Real parts. Full simulation packages you can download and explore.

@@ -10,7 +10,7 @@ interface CodeEditorProps {
 }
 
 const CODE_LINES = [
-  { text: 'from velex import engineer', delay: 0 },
+  { text: 'from ixra import engineer', delay: 0 },
   { text: '', delay: 0.3 },
   { text: 'project = engineer.create("concept.brief")', delay: 0.6 },
   { text: 'project.design()    # CAD generation', delay: 1.0, isComment: false },
@@ -76,7 +76,7 @@ export function CodeEditor({ isActive, onComplete }: CodeEditorProps) {
         {/* Blinking cursor */}
         {!typingComplete && visibleLines > 0 && (
           <motion.span
-            className="inline-block w-2 h-5 bg-velex-blue ml-1"
+            className="inline-block w-2 h-5 bg-ixra-blue ml-1"
             animate={{ opacity: [1, 0] }}
             transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
           />

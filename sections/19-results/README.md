@@ -24,7 +24,7 @@ PERFORMANCE THAT SPEAKS
 │ 100,000 ELEMENT FEA SOLVE                       │
 ├─────────────────────────────────────────────────┤
 │ Traditional (CPU)  ████████████████████  4.2 hrs│
-│ VELEX (GPU)        █                     2.1 min│
+│ IXRA (GPU)        █                     2.1 min│
 │                                                 │
 │ 120x FASTER                                     │
 └─────────────────────────────────────────────────┘

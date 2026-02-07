@@ -29,13 +29,13 @@
 ## Content
 
 ```
-VELEX CHANGES THE EQUATION
+IXRA CHANGES THE EQUATION
 
 You send us your part.
 We run GPU-accelerated simulation.
 You get validated results. Fast.
 
-from velex import simulate
+from ixra import simulate
 
 result = simulate("your_part.stl")
 # Solve time: 127 seconds
@@ -103,7 +103,7 @@ result = simulate("your_part.stl")
 - Brief burst (0.5s)
 
 ### Style
-- VELEX Blue particles
+- IXRA Blue particles
 - Radiate from result
 - Fade out quickly
 - Not over-the-top

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Linkedin, Twitter, Github, ArrowUp } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface FooterLinkProps {
@@ -18,33 +18,11 @@ function FooterLink({ href, children }: FooterLinkProps) {
     >
       {children}
       {/* Underline animation */}
-      <span className="absolute bottom-0 left-0 w-0 h-px bg-velex-blue transition-all duration-300 group-hover:w-full group-focus-visible:w-full" />
+      <span className="absolute bottom-0 left-0 w-0 h-px bg-ixra-blue transition-all duration-300 group-hover:w-full group-focus-visible:w-full" />
     </Link>
   )
 }
 
-interface SocialLinkProps {
-  href: string
-  icon: React.ReactNode
-  label: string
-}
-
-function SocialLink({ href, icon, label }: SocialLinkProps) {
-  return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className="text-titanium hover:text-velex-blue focus-visible:text-velex-blue transition-colors duration-200 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void"
-      whileHover={{ scale: 1.1 }}
-      whileFocus={{ scale: 1.1 }}
-      transition={{ duration: 0.2 }}
-    >
-      {icon}
-    </motion.a>
-  )
-}
 
 const NAV_LINKS = [
   { href: '#capabilities', label: 'Capabilities' },
@@ -53,22 +31,15 @@ const NAV_LINKS = [
 ]
 
 const RESOURCE_LINKS = [
-  { href: '#', label: 'Documentation' },
   { href: '#showcase', label: 'Case Studies' },
+  { href: '#capabilities', label: 'Our Arsenal' },
   { href: '#faq', label: 'FAQ' },
 ]
 
 const COMPANY_LINKS = [
-  { href: '#', label: 'About' },
   { href: '#contact', label: 'Contact' },
-  { href: '#', label: 'Careers' },
 ]
 
-const SOCIAL_LINKS = [
-  { href: 'https://linkedin.com', icon: <Linkedin className="w-5 h-5" />, label: 'LinkedIn' },
-  { href: 'https://twitter.com', icon: <Twitter className="w-5 h-5" />, label: 'Twitter' },
-  { href: 'https://github.com', icon: <Github className="w-5 h-5" />, label: 'GitHub' },
-]
 
 export function Footer() {
   const scrollToTop = () => {
@@ -93,8 +64,8 @@ export function Footer() {
         {/* Logo */}
         <div className="text-center mb-12">
           <Link href="/" className="inline-block">
-            <span className="font-headline text-2xl tracking-[0.3em] text-plasma-white hover:text-velex-blue transition-colors">
-              V E L E X
+            <span className="font-headline text-2xl tracking-[0.3em] text-plasma-white hover:text-ixra-blue transition-colors">
+              I X R A
             </span>
           </Link>
         </div>
@@ -140,25 +111,32 @@ export function Footer() {
                   <FooterLink href={link.href}>{link.label}</FooterLink>
                 </li>
               ))}
+              <li>
+                <a
+                  href="mailto:LandonKancir@Ixra.tech"
+                  className="group relative text-titanium hover:text-plasma-white transition-colors duration-200"
+                >
+                  Email Us
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-ixra-blue transition-all duration-300 group-hover:w-full" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="flex justify-center gap-6 mb-12">
-          {SOCIAL_LINKS.map((social) => (
-            <SocialLink
-              key={social.label}
-              href={social.href}
-              icon={social.icon}
-              label={social.label}
-            />
-          ))}
+        {/* Contact Email */}
+        <div className="text-center mb-6">
+          <a
+            href="mailto:LandonKancir@Ixra.tech"
+            className="text-titanium hover:text-ixra-blue transition-colors duration-200"
+          >
+            LandonKancir@Ixra.tech
+          </a>
         </div>
 
         {/* Copyright */}
         <div className="text-center text-sm text-titanium/60">
-          <p>© 2026 VELEX Engineering. Precision is the standard.</p>
+          <p>© 2026 IXRA Engineering. Precision is the standard.</p>
         </div>
 
         {/* Back to Top */}
@@ -167,9 +145,9 @@ export function Footer() {
           className={cn(
             'absolute right-4 bottom-4 md:right-8 md:bottom-8',
             'p-3 rounded-full border border-titanium/20',
-            'text-titanium hover:text-velex-blue hover:border-velex-blue/50',
-            'focus-visible:text-velex-blue focus-visible:border-velex-blue/50',
-            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
+            'text-titanium hover:text-ixra-blue hover:border-ixra-blue/50',
+            'focus-visible:text-ixra-blue focus-visible:border-ixra-blue/50',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
             'transition-colors duration-200'
           )}
           whileHover={{ y: -2 }}

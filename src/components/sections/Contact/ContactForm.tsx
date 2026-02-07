@@ -130,7 +130,7 @@ export function ContactForm() {
             </p>
             <button
               onClick={() => setStatus('idle')}
-              className="mt-6 text-velex-blue hover:text-electric-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void rounded"
+              className="mt-6 text-ixra-blue hover:text-electric-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void rounded"
             >
               Send another message
             </button>

@@ -1,4 +1,4 @@
-# VELEX Website Changelog
+# IXRA Website Changelog
 
 ## 2026-01-24
 
@@ -37,7 +37,7 @@
 - `LandingGearModel.tsx` - GLTF model loader (ready for Blender export)
 
 #### Section 08: Problem Section
-- Created split-screen comparison (Old Way vs VELEX Way)
+- Created split-screen comparison (Old Way vs IXRA Way)
 - Left side: Grayscale, stuck loading bar at 47%, slow clock
 - Right side: Full color, instant completion, GPU cores lighting up
 - Animated time counter: 4:00:00 → 0:02:07 (custom implementation)
@@ -48,7 +48,7 @@
 - `ProblemSection.tsx` - Main section with scroll trigger
 - `SplitScreen.tsx` - Side-by-side comparison layout
 - `OldWay.tsx` - Grayscale side with frustration visuals
-- `VelexWay.tsx` - Color side with GPU cores animation
+- `IxraWay.tsx` - Color side with GPU cores animation
 - `TimeCounter.tsx` - Custom animated counter (not react-countup due to type issues)
 
 **Files Created:**
@@ -70,7 +70,7 @@ src/components/sections/
 │   ├── ProblemSection.tsx
 │   ├── SplitScreen.tsx
 │   ├── OldWay.tsx
-│   ├── VelexWay.tsx
+│   ├── IxraWay.tsx
 │   ├── TimeCounter.tsx
 │   └── index.ts
 └── index.ts
@@ -167,7 +167,7 @@ Elevated Sections 1-3 to artwork-level quality:
 - Added missing Textarea component
 
 **New Features:**
-- Custom scrollbar with VELEX branding (titanium track, blue hover)
+- Custom scrollbar with IXRA branding (titanium track, blue hover)
 - Full reduced motion support for accessibility compliance
 
 ### Blender Update
@@ -187,7 +187,7 @@ Elevated Sections 1-3 to artwork-level quality:
 #### Section 02: Design System & Tokens
 - Configured 5 Google Fonts: Exo 2 (headlines), Inter (body), JetBrains Mono (code), Bebas Neue (accent), Space Mono (numbers)
 - Created CSS design tokens in `src/styles/tokens.css`:
-  - Primary colors: void (#050508), velex-blue (#00d4ff), electric-cyan (#00fff2), plasma-white (#f0f8ff)
+  - Primary colors: void (#050508), ixra-blue (#00d4ff), electric-cyan (#00fff2), plasma-white (#f0f8ff)
   - Secondary colors: stress-red, warning-orange, success-green, deep-purple, titanium
   - Animation easings: `cubic-bezier(0.4, 0, 0.2, 1)` (default), spring variant
   - Shadows including glow effects

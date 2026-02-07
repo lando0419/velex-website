@@ -13,7 +13,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
-  // VELEX strict rules - artwork level quality
+  // IXRA strict rules - artwork level quality
   {
     rules: {
       "@typescript-eslint/no-unused-vars": "error",

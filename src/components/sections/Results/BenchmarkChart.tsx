@@ -47,8 +47,8 @@ export function BenchmarkChart({ isInView }: BenchmarkChartProps) {
       {/* GPU Bar */}
       <div className="space-y-2">
         <div className="flex justify-between items-baseline">
-          <span className="text-sm text-plasma-white font-medium">VELEX (GPU)</span>
-          <span className="font-numbers text-sm text-velex-blue">2.1 min</span>
+          <span className="text-sm text-plasma-white font-medium">IXRA (GPU)</span>
+          <span className="font-numbers text-sm text-ixra-blue">2.1 min</span>
         </div>
         <div className="h-8 bg-titanium/10 rounded-full overflow-hidden relative">
           <motion.div

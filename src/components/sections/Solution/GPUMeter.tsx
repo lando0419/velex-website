@@ -24,7 +24,7 @@ export function GPUMeter({ phase }: GPUMeterProps) {
     <div className="rounded-lg border border-titanium/20 bg-void/50 p-4">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <Cpu className="w-4 h-4 text-velex-blue" />
+          <Cpu className="w-4 h-4 text-ixra-blue" />
           <span className="text-sm text-titanium">GPU Utilization</span>
         </div>
         <span className="font-numbers text-plasma-white">
@@ -35,7 +35,7 @@ export function GPUMeter({ phase }: GPUMeterProps) {
       {/* Progress Bar */}
       <div className="h-3 bg-void rounded-full overflow-hidden border border-titanium/20">
         <motion.div
-          className="h-full bg-gradient-to-r from-velex-blue to-electric-cyan"
+          className="h-full bg-gradient-to-r from-ixra-blue to-electric-cyan"
           initial={{ width: '5%' }}
           animate={{ width: `${utilization}%` }}
           transition={{

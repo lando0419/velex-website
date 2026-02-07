@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { CapabilityCardStats } from './CapabilityCardStats'
@@ -67,7 +68,7 @@ export function CapabilityCard({ capability }: CapabilityCardProps) {
           'group relative h-[320px] rounded-lg overflow-hidden cursor-pointer',
           'border border-titanium/20 bg-void/80',
           'transition-shadow duration-300',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void'
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void'
         )}
         tabIndex={0}
         role="button"
@@ -87,11 +88,17 @@ export function CapabilityCard({ capability }: CapabilityCardProps) {
             : '0 4px 12px -4px rgba(0, 0, 0, 0.3)',
         }}
       >
-        {/* Background placeholder for Blender render */}
-        <div className="absolute inset-0 bg-gradient-to-br from-void via-void/90 to-titanium/10">
-          {/* Future: <Image src={`/renders/${capability.id}.webp`} fill /> */}
+        {/* Background render image */}
+        <div className="absolute inset-0">
+          <Image
+            src={`/renders/${capability.id}.webp`}
+            alt={capability.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
           <motion.div
-            className="absolute inset-0 bg-velex-blue/5"
+            className="absolute inset-0 bg-ixra-blue/5"
             animate={{ scale: isActive ? 1.05 : 1 }}
             transition={{ duration: 0.4 }}
           />
@@ -108,7 +115,7 @@ export function CapabilityCard({ capability }: CapabilityCardProps) {
             animate={{ scale: isActive ? 1.1 : 1 }}
             transition={{ duration: 0.3 }}
           >
-            <Icon className="w-8 h-8 text-velex-blue" />
+            <Icon className="w-8 h-8 text-ixra-blue" />
           </motion.div>
 
           {/* Title & Description */}
@@ -127,7 +134,7 @@ export function CapabilityCard({ capability }: CapabilityCardProps) {
           >
             {capability.features.slice(0, 3).map((feature) => (
               <li key={feature} className="text-xs text-titanium/70 flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-velex-blue/60" />
+                <span className="w-1 h-1 rounded-full bg-ixra-blue/60" />
                 {feature}
               </li>
             ))}
@@ -143,7 +150,7 @@ export function CapabilityCard({ capability }: CapabilityCardProps) {
             animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : 10 }}
             transition={{ duration: 0.2 }}
           >
-            <span className="text-xs text-velex-blue font-medium">
+            <span className="text-xs text-ixra-blue font-medium">
               Learn more →
             </span>
           </motion.div>

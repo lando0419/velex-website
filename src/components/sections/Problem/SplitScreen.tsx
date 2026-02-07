@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { OldWay } from './OldWay'
-import { VelexWay } from './VelexWay'
+import { IxraWay } from './IxraWay'
 
 interface SplitScreenProps {
   isActive: boolean
@@ -29,14 +29,14 @@ export function SplitScreen({ isActive }: SplitScreenProps) {
         <OldWay isActive={isActive} />
       </motion.div>
 
-      {/* Right: The VELEX Way */}
+      {/* Right: The IXRA Way */}
       <motion.div
         className="relative"
         initial={{ x: 50, opacity: 0 }}
         animate={isActive ? { x: 0, opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
       >
-        <VelexWay isActive={isActive} />
+        <IxraWay isActive={isActive} />
       </motion.div>
     </div>
   )

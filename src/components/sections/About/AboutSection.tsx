@@ -61,7 +61,7 @@ export function AboutSection() {
             transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-              WHO WE <span className="text-velex-blue">ARE</span>
+              WHO WE <span className="text-ixra-blue">ARE</span>
             </h2>
             <p className="text-xl text-titanium max-w-2xl mx-auto">
               Engineers who got tired of waiting weeks for simulation results.
@@ -82,8 +82,8 @@ export function AboutSection() {
             <div className="bg-titanium/5 border border-titanium/20 rounded-xl p-8 md:p-10">
               <div className="prose prose-invert max-w-none">
                 <p className="text-lg text-titanium leading-relaxed mb-6">
-                  <span className="text-plasma-white font-medium">VELEX</span> is a GPU-accelerated
-                  engineering simulation company founded in <span className="text-velex-blue font-medium">2024</span>.
+                  <span className="text-plasma-white font-medium">IXRA</span> is a GPU-accelerated
+                  engineering simulation company founded in <span className="text-ixra-blue font-medium">2024</span>.
                   We started because traditional FEA consulting takes too long and costs too much.
                 </p>
                 <p className="text-lg text-titanium leading-relaxed mb-6">
@@ -92,7 +92,7 @@ export function AboutSection() {
                   robotics, automotive, drones, and medical devices.
                 </p>
                 <p className="text-lg text-titanium leading-relaxed">
-                  We&apos;re a <span className="text-velex-blue">fully remote team</span> that moves fast.
+                  We&apos;re a <span className="text-ixra-blue">fully remote team</span> that moves fast.
                   You describe what you need. We design, simulate, validate, and deliver—in days, not weeks.
                 </p>
               </div>
@@ -113,7 +113,7 @@ export function AboutSection() {
             {TRUST_SIGNALS.map((signal, index) => (
               <motion.div
                 key={signal.title}
-                className="text-center p-6 bg-titanium/5 border border-titanium/10 rounded-lg hover:border-velex-blue/30 transition-colors"
+                className="text-center p-6 bg-titanium/5 border border-titanium/10 rounded-lg hover:border-ixra-blue/30 transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
@@ -122,7 +122,7 @@ export function AboutSection() {
                   ease: [0.4, 0, 0.2, 1],
                 }}
               >
-                <signal.icon className="w-8 h-8 text-velex-blue mx-auto mb-3" />
+                <signal.icon className="w-8 h-8 text-ixra-blue mx-auto mb-3" />
                 <h3 className="text-sm font-medium text-plasma-white mb-1">
                   {signal.title}
                 </h3>

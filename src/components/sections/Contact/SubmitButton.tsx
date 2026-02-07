@@ -16,10 +16,10 @@ export function SubmitButton({ isLoading, disabled = false }: SubmitButtonProps)
       disabled={disabled || isLoading}
       className={cn(
         'w-full py-4 rounded-lg font-medium text-lg transition-all',
-        'bg-velex-blue text-void',
+        'bg-ixra-blue text-void',
         'hover:bg-electric-cyan',
         'disabled:opacity-50 disabled:cursor-not-allowed',
-        'focus:outline-none focus:ring-2 focus:ring-velex-blue focus:ring-offset-2 focus:ring-offset-void'
+        'focus:outline-none focus:ring-2 focus:ring-ixra-blue focus:ring-offset-2 focus:ring-offset-void'
       )}
       whileTap={{ scale: isLoading ? 1 : 0.98 }}
     >

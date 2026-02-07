@@ -60,7 +60,7 @@ export function ResultDisplay({ phase, onComplete }: ResultDisplayProps) {
         </span>
         {phase === 'solving' && !showStatus && (
           <motion.div
-            className="w-4 h-4 border-2 border-velex-blue border-t-transparent rounded-full"
+            className="w-4 h-4 border-2 border-ixra-blue border-t-transparent rounded-full"
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           />

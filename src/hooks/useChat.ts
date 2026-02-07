@@ -15,7 +15,7 @@ interface UseChatReturn {
 const INITIAL_MESSAGE: Message = {
   id: 'welcome',
   role: 'assistant',
-  content: "Hi! I'm the VELEX assistant. Tell me about your project and I'll help you scope it out with cost, timeline, and material recommendations.",
+  content: "Hi! I'm the IXRA assistant. Tell me about your project and I'll help you scope it out with cost, timeline, and material recommendations.",
   timestamp: new Date(),
 }
 

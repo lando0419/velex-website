@@ -43,7 +43,7 @@ export function CelebrationParticles() {
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute rounded-full bg-velex-blue"
+            className="absolute rounded-full bg-ixra-blue"
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,

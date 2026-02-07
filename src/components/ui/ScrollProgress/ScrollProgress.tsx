@@ -38,7 +38,7 @@ export function ScrollProgress({ className }: ScrollProgressProps) {
       )}
     >
       <motion.div
-        className="h-full bg-gradient-to-r from-velex-blue to-electric-cyan"
+        className="h-full bg-gradient-to-r from-ixra-blue to-electric-cyan"
         style={{
           scaleX: springProgress,
           transformOrigin: '0%',

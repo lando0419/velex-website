@@ -36,7 +36,7 @@
 const colors = {
   // Primary
   void: '#050508',          // Deep background
-  velexBlue: '#00d4ff',     // Primary accent
+  ixraBlue: '#00d4ff',     // Primary accent
   electricCyan: '#00fff2',  // Highlights
   plasmaWhite: '#f0f8ff',   // Text
 
@@ -135,7 +135,7 @@ const shadows = {
   sm: '0 1px 2px rgba(0, 0, 0, 0.3)',
   md: '0 4px 6px rgba(0, 0, 0, 0.3)',
   lg: '0 4px 24px rgba(0, 0, 0, 0.4)',
-  glow: '0 0 20px rgba(0, 212, 255, 0.3)',  // VELEX Blue glow
+  glow: '0 0 20px rgba(0, 212, 255, 0.3)',  // IXRA Blue glow
   glowStrong: '0 0 40px rgba(0, 212, 255, 0.5)',
 }
 ```
@@ -171,7 +171,7 @@ const config: Config = {
     extend: {
       colors: {
         void: '#050508',
-        'velex-blue': '#00d4ff',
+        'ixra-blue': '#00d4ff',
         // ... all colors
       },
       fontFamily: {

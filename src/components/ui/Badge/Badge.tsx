@@ -13,7 +13,7 @@ const variantStyles: Record<BadgeVariant, string> = {
   success: 'bg-success-green/20 text-success-green border-success-green/30',
   warning: 'bg-warning-orange/20 text-warning-orange border-warning-orange/30',
   error: 'bg-stress-red/20 text-stress-red border-stress-red/30',
-  info: 'bg-velex-blue/20 text-velex-blue border-velex-blue/30',
+  info: 'bg-ixra-blue/20 text-ixra-blue border-ixra-blue/30',
 }
 
 const sizeStyles: Record<BadgeSize, string> = {

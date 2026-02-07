@@ -55,7 +55,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               // Default state
               'border-titanium/30',
               // Focus state
-              'focus:outline-none focus:border-velex-blue',
+              'focus:outline-none focus:border-ixra-blue',
               'focus:shadow-[0_0_0_1px_rgba(0,212,255,0.3)]',
               // Error state
               error &&
@@ -91,7 +91,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 isFloating
                   ? 'top-0 -translate-y-1/2 text-xs px-1 bg-void'
                   : 'top-4 text-base',
-                isFocused && !error && !success && 'text-velex-blue',
+                isFocused && !error && !success && 'text-ixra-blue',
                 error && 'text-stress-red',
                 success && 'text-success-green'
               )}

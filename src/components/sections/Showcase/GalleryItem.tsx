@@ -41,14 +41,14 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
 
   // Generate a consistent gradient based on category (part types)
   const gradientMap: Record<string, string> = {
-    robotics: 'from-velex-blue/20 to-electric-cyan/20',
+    robotics: 'from-ixra-blue/20 to-electric-cyan/20',
     drones: 'from-warning-orange/20 to-stress-red/20',
     automotive: 'from-stress-red/20 to-warning-orange/20',
-    aerospace: 'from-deep-purple/20 to-velex-blue/20',
-    ev: 'from-success-green/20 to-velex-blue/20',
+    aerospace: 'from-deep-purple/20 to-ixra-blue/20',
+    ev: 'from-success-green/20 to-ixra-blue/20',
     medical: 'from-electric-cyan/20 to-success-green/20',
     hobby: 'from-warning-orange/20 to-success-green/20',
-    industrial: 'from-titanium/20 to-velex-blue/20',
+    industrial: 'from-titanium/20 to-ixra-blue/20',
   }
 
   const gradient = gradientMap[item.category] || 'from-titanium/20 to-void'
@@ -69,7 +69,7 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
       className={cn(
         'group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer',
         'border border-titanium/20 bg-void',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
         item.status === 'coming-soon' && 'opacity-70'
       )}
       tabIndex={0}
@@ -101,7 +101,7 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
 
       {/* Top badges row */}
       <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-        <span className="px-2 py-1 text-xs font-medium text-velex-blue bg-void/80 rounded-full border border-velex-blue/30 capitalize">
+        <span className="px-2 py-1 text-xs font-medium text-ixra-blue bg-void/80 rounded-full border border-ixra-blue/30 capitalize">
           {item.category}
         </span>
         <StatusIndicator status={item.status} />
@@ -122,7 +122,7 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
 
       {/* Hover overlay */}
       <motion.div
-        className="absolute inset-0 bg-velex-blue/10 pointer-events-none"
+        className="absolute inset-0 bg-ixra-blue/10 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: isActive ? 1 : 0 }}
         transition={{ duration: 0.2 }}
@@ -137,7 +137,7 @@ export function GalleryItem({ item, onClick }: GalleryItemProps) {
       >
         <span className={cn(
           'px-4 py-2 text-sm font-medium rounded-full',
-          item.status === 'complete' ? 'text-void bg-velex-blue' :
+          item.status === 'complete' ? 'text-void bg-ixra-blue' :
           item.status === 'in-progress' ? 'text-void bg-warning-orange' :
           'text-void bg-titanium'
         )}>

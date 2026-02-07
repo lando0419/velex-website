@@ -3,21 +3,21 @@
 import { motion } from 'framer-motion'
 import { Zap, Check } from 'lucide-react'
 
-interface VelexWayProps {
+interface IxraWayProps {
   isActive: boolean
 }
 
-export function VelexWay({ isActive }: VelexWayProps) {
+export function IxraWay({ isActive }: IxraWayProps) {
   return (
     <div className="p-8">
-      <h3 className="text-2xl font-headline text-velex-blue mb-6 text-center">
-        The VELEX Way
+      <h3 className="text-2xl font-headline text-ixra-blue mb-6 text-center">
+        The IXRA Way
       </h3>
 
       {/* Instant completion bar */}
-      <div className="relative h-4 bg-void/50 rounded-full overflow-hidden border border-velex-blue/30">
+      <div className="relative h-4 bg-void/50 rounded-full overflow-hidden border border-ixra-blue/30">
         <motion.div
-          className="absolute left-0 top-0 h-full bg-gradient-to-r from-velex-blue to-electric-cyan"
+          className="absolute left-0 top-0 h-full bg-gradient-to-r from-ixra-blue to-electric-cyan"
           initial={{ width: '0%' }}
           animate={isActive ? { width: '100%' } : {}}
           transition={{ duration: 0.8, delay: 1, ease: [0.4, 0, 0.2, 1] }}
@@ -62,7 +62,7 @@ export function VelexWay({ isActive }: VelexWayProps) {
 
       {/* Speed indicator */}
       <motion.div
-        className="flex items-center justify-center gap-2 mt-6 text-velex-blue"
+        className="flex items-center justify-center gap-2 mt-6 text-ixra-blue"
         initial={{ opacity: 0 }}
         animate={isActive ? { opacity: 1 } : {}}
         transition={{ delay: 2.5 }}

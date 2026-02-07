@@ -3,12 +3,12 @@
 @import '../styles/micro-interactions.css';
 
 /* ═══════════════════════════════════════════════════════════
-   VELEX DESIGN SYSTEM - TAILWIND 4 THEME
+   IXRA DESIGN SYSTEM - TAILWIND 4 THEME
    ═══════════════════════════════════════════════════════════ */
 @theme {
   /* Colors - Primary */
   --color-void: #050508;
-  --color-velex-blue: #00d4ff;
+  --color-ixra-blue: #00d4ff;
   --color-electric-cyan: #00fff2;
   --color-plasma-white: #f0f8ff;
 
@@ -101,7 +101,7 @@
     outline: none;
     box-shadow:
       0 0 0 2px var(--color-void),
-      0 0 0 4px var(--color-velex-blue);
+      0 0 0 4px var(--color-ixra-blue);
   }
 
   /* Selection */
@@ -126,7 +126,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-velex-blue);
+    background: var(--color-ixra-blue);
   }
 
   /* Firefox scrollbar */

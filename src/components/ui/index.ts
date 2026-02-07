@@ -1,4 +1,4 @@
-// VELEX UI Component Library
+// IXRA UI Component Library
 // Artwork-level components with attention to every detail
 
 export { Button } from './Button'

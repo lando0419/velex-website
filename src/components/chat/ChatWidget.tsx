@@ -17,11 +17,11 @@ export function ChatWidget() {
         className={cn(
           'fixed bottom-6 right-6 z-50',
           'w-14 h-14 rounded-full',
-          'bg-velex-blue text-void',
+          'bg-ixra-blue text-void',
           'flex items-center justify-center',
-          'shadow-lg shadow-velex-blue/25',
+          'shadow-lg shadow-ixra-blue/25',
           'hover:bg-electric-cyan hover:scale-105',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
           'transition-all duration-200'
         )}
         whileHover={{ scale: 1.05 }}

@@ -59,7 +59,7 @@ export function HeroAnimation({ children }: HeroAnimationProps) {
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
           >
             <div
-              className="h-6 w-6 rounded-full bg-velex-blue"
+              className="h-6 w-6 rounded-full bg-ixra-blue"
               style={{
                 boxShadow: '0 0 60px 20px rgba(0, 212, 255, 0.6), 0 0 100px 40px rgba(0, 212, 255, 0.3)',
               }}
@@ -75,7 +75,7 @@ export function HeroAnimation({ children }: HeroAnimationProps) {
             {particles.map((particle) => (
               <motion.div
                 key={particle.id}
-                className="absolute h-2 w-2 rounded-full bg-velex-blue"
+                className="absolute h-2 w-2 rounded-full bg-ixra-blue"
                 style={{
                   boxShadow: '0 0 10px rgba(0, 212, 255, 0.8)',
                 }}
@@ -108,13 +108,13 @@ export function HeroAnimation({ children }: HeroAnimationProps) {
         {phase === 'expand' && (
           <>
             <motion.div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-velex-blue/60 z-20"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-ixra-blue/60 z-20"
               initial={{ width: 160, height: 160, opacity: 1 }}
               animate={{ width: 800, height: 800, opacity: 0 }}
               transition={{ duration: 1.2, ease: 'easeOut' }}
             />
             <motion.div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-velex-blue/30 z-20"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-ixra-blue/30 z-20"
               initial={{ width: 160, height: 160, opacity: 0.8 }}
               animate={{ width: 600, height: 600, opacity: 0 }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.1 }}

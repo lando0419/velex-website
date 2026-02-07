@@ -37,7 +37,7 @@ export function FilterBar({
           onClick={() => onFilterChange(option.id)}
           className={cn(
             'relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200',
-            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void',
             activeFilter === option.id
               ? 'text-void'
               : 'text-titanium hover:text-plasma-white'
@@ -47,7 +47,7 @@ export function FilterBar({
           {activeFilter === option.id && (
             <motion.div
               layoutId="activeFilter"
-              className="absolute inset-0 bg-velex-blue rounded-full"
+              className="absolute inset-0 bg-ixra-blue rounded-full"
               transition={{
                 type: 'spring',
                 stiffness: 400,

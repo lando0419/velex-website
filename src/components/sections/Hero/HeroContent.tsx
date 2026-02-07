@@ -17,19 +17,19 @@ export function HeroContent({ instant = false }: HeroContentProps) {
 
   return (
     <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
-      {/* VELEX Logo */}
+      {/* IXRA Logo */}
       <motion.h1
         className="font-accent text-[clamp(4rem,15vw,12rem)] tracking-[0.3em] text-plasma-white"
         initial={{ opacity: 0, filter: 'blur(20px)' }}
         animate={{ opacity: 1, filter: 'blur(0px)' }}
         transition={{ ...transition, delay: 1.5 }}
       >
-        VELEX
+        IXRA
       </motion.h1>
 
       {/* Decorative line */}
       <motion.div
-        className="my-6 h-px bg-gradient-to-r from-transparent via-velex-blue to-transparent"
+        className="my-6 h-px bg-gradient-to-r from-transparent via-ixra-blue to-transparent"
         initial={{ width: 0, opacity: 0 }}
         animate={{ width: '200px', opacity: 1 }}
         transition={{ ...transition, delay: 2.0 }}
@@ -83,9 +83,9 @@ function HeroContentStatic() {
   return (
     <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
       <h1 className="font-accent text-[clamp(4rem,15vw,12rem)] tracking-[0.3em] text-plasma-white">
-        VELEX
+        IXRA
       </h1>
-      <div className="my-6 h-px w-[200px] bg-gradient-to-r from-transparent via-velex-blue to-transparent" />
+      <div className="my-6 h-px w-[200px] bg-gradient-to-r from-transparent via-ixra-blue to-transparent" />
       <p className="font-headline text-xl md:text-2xl text-titanium">
         Design. Simulate. Deliver. GPU-Accelerated.
       </p>

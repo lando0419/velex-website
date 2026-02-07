@@ -3,12 +3,13 @@ import { inter, exo2, jetbrainsMono, bebasNeue, spaceMono } from './fonts'
 import { SmoothScrollProvider } from '@/components/providers'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { FloatingCTA } from '@/components/layout/FloatingCTA'
 import { ChatWidget } from '@/components/chat'
 import { ScrollProgress } from '@/components/ui'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'VELEX | Design. Simulate. Deliver. GPU-Accelerated.',
+  title: 'IXRA | Design. Simulate. Deliver. GPU-Accelerated.',
   description:
     'From concept to validated design. Full-service engineering: we design your CAD, run GPU-accelerated simulation, validate results, and deliver. For aerospace, automotive, and advanced manufacturing.',
   keywords: [
@@ -24,16 +25,16 @@ export const metadata: Metadata = {
     'structural analysis',
     'product development',
   ],
-  authors: [{ name: 'VELEX Engineering' }],
-  creator: 'VELEX Engineering',
-  publisher: 'VELEX Engineering',
-  metadataBase: new URL('https://velex.engineering'),
+  authors: [{ name: 'IXRA Engineering' }],
+  creator: 'IXRA Engineering',
+  publisher: 'IXRA Engineering',
+  metadataBase: new URL('https://ixra.tech'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://velex.engineering',
-    siteName: 'VELEX Engineering',
-    title: 'VELEX | Design. Simulate. Deliver.',
+    url: 'https://ixra.tech',
+    siteName: 'IXRA Engineering',
+    title: 'IXRA | Design. Simulate. Deliver.',
     description:
       'From concept to validated design. Full-service GPU-accelerated engineering for FEA, CFD, and thermal simulation.',
     images: [
@@ -41,13 +42,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'VELEX Engineering - Design. Simulate. Deliver.',
+        alt: 'IXRA Engineering - Design. Simulate. Deliver.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VELEX | Design. Simulate. Deliver.',
+    title: 'IXRA | Design. Simulate. Deliver.',
     description:
       'From concept to validated design. Full-service GPU-accelerated engineering for FEA, CFD, and thermal simulation.',
     images: ['/og-image.png'],
@@ -85,6 +86,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <FloatingCTA />
           <ChatWidget />
         </SmoothScrollProvider>
       </body>

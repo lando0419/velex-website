@@ -94,15 +94,15 @@ export function QuoteCalculator() {
   return (
     <div className="max-w-2xl mx-auto rounded-xl border border-titanium/20 bg-void/80 p-6 md:p-8">
       <div className="flex items-center gap-3 mb-6">
-        <Calculator className="w-6 h-6 text-velex-blue" />
+        <Calculator className="w-6 h-6 text-ixra-blue" />
         <h3 className="font-headline text-xl text-plasma-white">
           Quick Estimate Calculator
         </h3>
       </div>
 
       {/* All Simulations Included Note */}
-      <div className="mb-6 p-3 bg-velex-blue/10 border border-velex-blue/20 rounded-lg">
-        <p className="text-sm text-velex-blue flex items-center gap-2">
+      <div className="mb-6 p-3 bg-ixra-blue/10 border border-ixra-blue/20 rounded-lg">
+        <p className="text-sm text-ixra-blue flex items-center gap-2">
           <Info className="w-4 h-4 flex-shrink-0" />
           <span>
             <strong>All 6 simulation types included:</strong> Structural, Thermal, CFD, Modal, Topology, Multi-Physics
@@ -120,9 +120,9 @@ export function QuoteCalculator() {
               onClick={() => setServiceType(opt.value)}
               className={cn(
                 'px-4 py-3 rounded-lg text-sm font-medium transition-all',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
                 serviceType === opt.value
-                  ? 'bg-velex-blue text-void'
+                  ? 'bg-ixra-blue text-void'
                   : 'bg-titanium/10 text-titanium hover:bg-titanium/20'
               )}
             >
@@ -148,9 +148,9 @@ export function QuoteCalculator() {
               onClick={() => setBuildType(opt.value)}
               className={cn(
                 'px-4 py-3 rounded-lg text-sm font-medium transition-all',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
                 buildType === opt.value
-                  ? 'bg-velex-blue text-void'
+                  ? 'bg-ixra-blue text-void'
                   : 'bg-titanium/10 text-titanium hover:bg-titanium/20'
               )}
             >
@@ -182,9 +182,9 @@ export function QuoteCalculator() {
               max="50"
               value={partCount}
               onChange={(e) => setPartCount(parseInt(e.target.value))}
-              className="flex-1 h-2 bg-titanium/20 rounded-lg appearance-none cursor-pointer accent-velex-blue"
+              className="flex-1 h-2 bg-titanium/20 rounded-lg appearance-none cursor-pointer accent-ixra-blue"
             />
-            <span className="font-numbers text-lg text-velex-blue w-12 text-right">
+            <span className="font-numbers text-lg text-ixra-blue w-12 text-right">
               {partCount}{partCount >= 50 ? '+' : ''}
             </span>
           </div>
@@ -210,9 +210,9 @@ export function QuoteCalculator() {
                     onMouseLeave={() => setHoveredTooltip(null)}
                     className={cn(
                       'w-full px-4 py-2 rounded-lg text-sm font-medium transition-all text-left',
-                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
+                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
                       complexity === opt.value
-                        ? 'bg-velex-blue text-void'
+                        ? 'bg-ixra-blue text-void'
                         : 'bg-titanium/10 text-titanium hover:bg-titanium/20'
                     )}
                   >
@@ -252,11 +252,11 @@ export function QuoteCalculator() {
                     onMouseLeave={() => setHoveredTooltip(null)}
                     className={cn(
                       'w-full px-4 py-2 rounded-lg text-sm font-medium transition-all text-left',
-                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
+                      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-1 focus-visible:ring-offset-void',
                       opt.requiresConsultation
                         ? 'bg-titanium/5 text-titanium/50 cursor-not-allowed border border-titanium/20'
                         : simDepth === opt.value
-                          ? 'bg-velex-blue text-void'
+                          ? 'bg-ixra-blue text-void'
                           : 'bg-titanium/10 text-titanium hover:bg-titanium/20'
                     )}
                   >
@@ -334,7 +334,7 @@ export function QuoteCalculator() {
             <p className="text-sm text-titanium mb-2">Estimated Range</p>
             <motion.p
               key={`${serviceType}-${complexity}-${simDepth}`}
-              className="font-numbers text-4xl text-velex-blue"
+              className="font-numbers text-4xl text-ixra-blue"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.2 }}
@@ -355,7 +355,7 @@ export function QuoteCalculator() {
       <div className="mt-6 text-center">
         <a
           href="#contact"
-          className="inline-block px-8 py-3 bg-velex-blue text-void font-medium rounded-lg hover:bg-electric-cyan focus-visible:bg-electric-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void transition-colors"
+          className="inline-block px-8 py-3 bg-ixra-blue text-void font-medium rounded-lg hover:bg-electric-cyan focus-visible:bg-electric-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void transition-colors"
         >
           {isMultiPart ? 'Request Custom Quote' : 'Get a Quote'}
         </a>

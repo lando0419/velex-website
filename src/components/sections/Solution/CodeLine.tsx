@@ -50,7 +50,7 @@ function highlightSyntax(text: string, isComment?: boolean): React.ReactNode {
     } else if (functions.includes(token)) {
       // Function
       parts.push(
-        <span key={key++} className="text-velex-blue">
+        <span key={key++} className="text-ixra-blue">
           {token}
         </span>
       )

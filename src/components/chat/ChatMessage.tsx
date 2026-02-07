@@ -32,13 +32,13 @@ export function ChatMessage({ message, onTransferToForm }: ChatMessageProps) {
       <div
         className={cn(
           'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center',
-          isUser ? 'bg-titanium/20' : 'bg-velex-blue/20'
+          isUser ? 'bg-titanium/20' : 'bg-ixra-blue/20'
         )}
       >
         {isUser ? (
           <User className="w-4 h-4 text-titanium" />
         ) : (
-          <Sparkles className="w-4 h-4 text-velex-blue" />
+          <Sparkles className="w-4 h-4 text-ixra-blue" />
         )}
       </div>
 
@@ -48,7 +48,7 @@ export function ChatMessage({ message, onTransferToForm }: ChatMessageProps) {
           className={cn(
             'px-4 py-2.5 rounded-2xl text-sm',
             isUser
-              ? 'bg-velex-blue text-void rounded-br-md'
+              ? 'bg-ixra-blue text-void rounded-br-md'
               : 'bg-titanium/10 text-plasma-white rounded-bl-md'
           )}
         >
@@ -68,9 +68,9 @@ export function ChatMessage({ message, onTransferToForm }: ChatMessageProps) {
             onClick={onTransferToForm}
             className={cn(
               'mt-3 flex items-center gap-2 px-4 py-2 rounded-lg',
-              'bg-velex-blue/10 text-velex-blue text-sm font-medium',
-              'hover:bg-velex-blue/20 transition-colors',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue'
+              'bg-ixra-blue/10 text-ixra-blue text-sm font-medium',
+              'hover:bg-ixra-blue/20 transition-colors',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue'
             )}
             whileHover={{ x: 4 }}
           >

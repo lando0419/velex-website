@@ -25,13 +25,13 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
       {/* Header */}
       <div className="flex items-center gap-3 px-4 py-3 border-b border-titanium/20 bg-void/50">
         <div className="relative">
-          <div className="w-10 h-10 rounded-full bg-velex-blue/20 flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-velex-blue" />
+          <div className="w-10 h-10 rounded-full bg-ixra-blue/20 flex items-center justify-center">
+            <Sparkles className="w-5 h-5 text-ixra-blue" />
           </div>
           <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-success-green rounded-full border-2 border-void" />
         </div>
         <div>
-          <h3 className="font-headline text-sm text-plasma-white">VELEX Assistant</h3>
+          <h3 className="font-headline text-sm text-plasma-white">IXRA Assistant</h3>
           <p className="text-xs text-success-green">Online - Ready to help</p>
         </div>
       </div>
@@ -57,7 +57,7 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
               {[0, 1, 2].map((i) => (
                 <motion.span
                   key={i}
-                  className="w-2 h-2 bg-velex-blue rounded-full"
+                  className="w-2 h-2 bg-ixra-blue rounded-full"
                   animate={{ y: [0, -4, 0] }}
                   transition={{
                     duration: 0.6,
@@ -67,7 +67,7 @@ export function ChatWindow({ onClose }: ChatWindowProps) {
                 />
               ))}
             </div>
-            <span className="text-xs">VELEX is thinking...</span>
+            <span className="text-xs">IXRA is thinking...</span>
           </motion.div>
         )}
 

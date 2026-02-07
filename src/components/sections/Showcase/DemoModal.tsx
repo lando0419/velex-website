@@ -3,7 +3,7 @@
 import { useEffect, useCallback, useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ImageIcon, FileText, BarChart3, Download, ChevronLeft, ChevronRight, Clock, CheckCircle2, Loader2 } from 'lucide-react'
+import { X, ImageIcon, FileText, BarChart3, Download, ChevronLeft, ChevronRight, Clock, CheckCircle2, Loader2, type LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { GalleryItem } from './ShowcaseSection'
 
@@ -14,7 +14,7 @@ interface DemoModalProps {
 
 type TabId = 'photos' | 'docs' | 'analysis' | 'downloads'
 
-const TABS: { id: TabId; label: string; icon: React.ElementType }[] = [
+const TABS: { id: TabId; label: string; icon: LucideIcon }[] = [
   { id: 'photos', label: 'Photos', icon: ImageIcon },
   { id: 'docs', label: 'Documentation', icon: FileText },
   { id: 'analysis', label: 'Analysis Data', icon: BarChart3 },
@@ -74,13 +74,13 @@ function PhotoGallery({ item }: { item: GalleryItem }) {
           <>
             <button
               onClick={prev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-void/80 border border-titanium/30 text-titanium hover:text-plasma-white hover:border-velex-blue transition-colors"
+              className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-void/80 border border-titanium/30 text-titanium hover:text-plasma-white hover:border-ixra-blue transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={next}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-void/80 border border-titanium/30 text-titanium hover:text-plasma-white hover:border-velex-blue transition-colors"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-void/80 border border-titanium/30 text-titanium hover:text-plasma-white hover:border-ixra-blue transition-colors"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -97,7 +97,7 @@ function PhotoGallery({ item }: { item: GalleryItem }) {
               onClick={() => setCurrentIndex(idx)}
               className={cn(
                 'relative w-20 h-14 rounded-md overflow-hidden border-2 transition-all flex-shrink-0',
-                idx === currentIndex ? 'border-velex-blue' : 'border-titanium/20 opacity-60 hover:opacity-100'
+                idx === currentIndex ? 'border-ixra-blue' : 'border-titanium/20 opacity-60 hover:opacity-100'
               )}
             >
               {!imageErrors[idx] ? (
@@ -151,14 +151,14 @@ function DocumentsTab({ item }: { item: GalleryItem }) {
           href={doc.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 p-4 rounded-lg bg-titanium/5 border border-titanium/10 hover:border-velex-blue/50 transition-colors group"
+          className="flex items-center gap-3 p-4 rounded-lg bg-titanium/5 border border-titanium/10 hover:border-ixra-blue/50 transition-colors group"
         >
           <span className="text-2xl">{iconMap[doc.type]}</span>
           <div className="flex-1">
-            <p className="text-plasma-white font-medium group-hover:text-velex-blue transition-colors">{doc.title}</p>
+            <p className="text-plasma-white font-medium group-hover:text-ixra-blue transition-colors">{doc.title}</p>
             <p className="text-xs text-titanium uppercase">{doc.type}</p>
           </div>
-          <Download className="w-5 h-5 text-titanium group-hover:text-velex-blue transition-colors" />
+          <Download className="w-5 h-5 text-titanium group-hover:text-ixra-blue transition-colors" />
         </a>
       ))}
     </div>
@@ -178,7 +178,7 @@ function AnalysisTab({ item }: { item: GalleryItem }) {
   const analysisTypes = [
     { key: 'structural', label: 'Structural Analysis', color: 'text-stress-red' },
     { key: 'thermal', label: 'Thermal Analysis', color: 'text-warning-orange' },
-    { key: 'cfd', label: 'CFD Analysis', color: 'text-velex-blue' },
+    { key: 'cfd', label: 'CFD Analysis', color: 'text-ixra-blue' },
     { key: 'modal', label: 'Modal Analysis', color: 'text-deep-purple' },
   ] as const
 
@@ -223,16 +223,16 @@ function DownloadsTab({ item }: { item: GalleryItem }) {
           key={idx}
           href={dl.url}
           download
-          className="flex items-center gap-4 p-4 rounded-lg bg-titanium/5 border border-titanium/10 hover:border-velex-blue/50 transition-colors group"
+          className="flex items-center gap-4 p-4 rounded-lg bg-titanium/5 border border-titanium/10 hover:border-ixra-blue/50 transition-colors group"
         >
-          <div className="w-12 h-12 rounded-lg bg-velex-blue/10 border border-velex-blue/30 flex items-center justify-center">
-            <span className="text-xs font-bold text-velex-blue">{dl.format}</span>
+          <div className="w-12 h-12 rounded-lg bg-ixra-blue/10 border border-ixra-blue/30 flex items-center justify-center">
+            <span className="text-xs font-bold text-ixra-blue">{dl.format}</span>
           </div>
           <div className="flex-1">
-            <p className="text-plasma-white font-medium group-hover:text-velex-blue transition-colors">{dl.title}</p>
+            <p className="text-plasma-white font-medium group-hover:text-ixra-blue transition-colors">{dl.title}</p>
             <p className="text-xs text-titanium">{dl.size}</p>
           </div>
-          <Download className="w-5 h-5 text-titanium group-hover:text-velex-blue transition-colors" />
+          <Download className="w-5 h-5 text-titanium group-hover:text-ixra-blue transition-colors" />
         </a>
       ))}
 
@@ -260,14 +260,14 @@ export function DemoModal({ item, onClose }: DemoModalProps) {
   }, [handleKeyDown])
 
   const categoryColors: Record<string, string> = {
-    robotics: 'from-velex-blue/30 to-electric-cyan/30',
+    robotics: 'from-ixra-blue/30 to-electric-cyan/30',
     drones: 'from-warning-orange/30 to-stress-red/30',
     automotive: 'from-stress-red/30 to-warning-orange/30',
-    aerospace: 'from-deep-purple/30 to-velex-blue/30',
-    ev: 'from-success-green/30 to-velex-blue/30',
+    aerospace: 'from-deep-purple/30 to-ixra-blue/30',
+    ev: 'from-success-green/30 to-ixra-blue/30',
     medical: 'from-electric-cyan/30 to-success-green/30',
     hobby: 'from-warning-orange/30 to-success-green/30',
-    industrial: 'from-titanium/30 to-velex-blue/30',
+    industrial: 'from-titanium/30 to-ixra-blue/30',
   }
 
   return (
@@ -296,7 +296,7 @@ export function DemoModal({ item, onClose }: DemoModalProps) {
           <div className={cn('relative p-6 bg-gradient-to-br', categoryColors[item.category] || 'from-titanium/30 to-void')}>
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-void/80 border border-titanium/30 text-titanium hover:text-plasma-white hover:border-velex-blue transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-full bg-void/80 border border-titanium/30 text-titanium hover:text-plasma-white hover:border-ixra-blue transition-colors"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -304,7 +304,7 @@ export function DemoModal({ item, onClose }: DemoModalProps) {
 
             <div className="flex items-start gap-3 mb-3">
               <StatusBadge status={item.status} />
-              <span className="px-3 py-1 text-xs font-medium text-velex-blue bg-velex-blue/10 rounded-full border border-velex-blue/30 uppercase">
+              <span className="px-3 py-1 text-xs font-medium text-ixra-blue bg-ixra-blue/10 rounded-full border border-ixra-blue/30 uppercase">
                 {item.category}
               </span>
             </div>
@@ -319,7 +319,7 @@ export function DemoModal({ item, onClose }: DemoModalProps) {
               <div className="flex flex-wrap gap-4 mt-4">
                 {Object.entries(item.stats).map(([key, value]) => (
                   <div key={key} className="text-center">
-                    <p className="font-numbers text-lg text-velex-blue">{value}</p>
+                    <p className="font-numbers text-lg text-ixra-blue">{value}</p>
                     <p className="text-xs text-titanium capitalize">{key}</p>
                   </div>
                 ))}
@@ -336,7 +336,7 @@ export function DemoModal({ item, onClose }: DemoModalProps) {
                 className={cn(
                   'flex-1 flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-colors',
                   activeTab === tab.id
-                    ? 'text-velex-blue border-b-2 border-velex-blue bg-velex-blue/5'
+                    ? 'text-ixra-blue border-b-2 border-ixra-blue bg-ixra-blue/5'
                     : 'text-titanium hover:text-plasma-white hover:bg-titanium/5'
                 )}
               >
@@ -359,14 +359,14 @@ export function DemoModal({ item, onClose }: DemoModalProps) {
             <div className="flex gap-4 justify-end">
               <button
                 onClick={onClose}
-                className="px-6 py-2 border border-titanium/30 text-titanium rounded-lg hover:border-velex-blue hover:text-plasma-white transition-colors"
+                className="px-6 py-2 border border-titanium/30 text-titanium rounded-lg hover:border-ixra-blue hover:text-plasma-white transition-colors"
               >
                 Close
               </button>
               <a
                 href="#contact"
                 onClick={onClose}
-                className="px-6 py-2 bg-velex-blue text-void font-medium rounded-lg hover:bg-electric-cyan transition-colors"
+                className="px-6 py-2 bg-ixra-blue text-void font-medium rounded-lg hover:bg-electric-cyan transition-colors"
               >
                 Start Your Project
               </a>

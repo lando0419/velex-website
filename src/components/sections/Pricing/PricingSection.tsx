@@ -42,7 +42,7 @@ const FULL_SERVICE_TIERS: PricingTier[] = [
   {
     id: 'system',
     name: 'Full System',
-    priceRange: '$25,000 - $50,000',
+    priceRange: 'From $25,000',
     features: [
       'Complete system design',
       'Multi-physics simulation',
@@ -97,7 +97,7 @@ export function PricingSection() {
           transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-            <span className="text-velex-blue">PRICING</span>
+            <span className="text-ixra-blue">PRICING</span>
           </h2>
           <p className="text-xl text-titanium max-w-2xl mx-auto">
             Two ways to work with us. Full-service engineering or simulation-only.

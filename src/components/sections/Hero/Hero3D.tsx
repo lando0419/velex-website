@@ -33,7 +33,7 @@ export function Hero3D({
     return (
       <MobileFallback
         imageSrc={fallbackImage}
-        alt="VELEX Engineering Simulation - Landing Gear Analysis"
+        alt="IXRA Engineering Simulation - Landing Gear Analysis"
         className="absolute inset-0"
       />
     )

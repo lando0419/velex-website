@@ -28,7 +28,7 @@ export function ScrollIndicator() {
         animate={prefersReducedMotion ? {} : { y: [0, 8, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <ChevronDown className="h-6 w-6 text-velex-blue" />
+        <ChevronDown className="h-6 w-6 text-ixra-blue" />
       </motion.div>
     </motion.div>
   )

@@ -69,15 +69,15 @@ export function CapabilityModal({ capability, onClose }: CapabilityModalProps) {
           <div className="relative p-6 pb-4 border-b border-titanium/20">
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-titanium/10 border border-titanium/20 text-titanium hover:text-plasma-white hover:border-velex-blue transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-full bg-titanium/10 border border-titanium/20 text-titanium hover:text-plasma-white hover:border-ixra-blue transition-colors"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-lg bg-velex-blue/10 border border-velex-blue/30">
-                <Icon className="w-8 h-8 text-velex-blue" />
+              <div className="p-3 rounded-lg bg-ixra-blue/10 border border-ixra-blue/30">
+                <Icon className="w-8 h-8 text-ixra-blue" />
               </div>
               <div>
                 <h2 className="font-headline text-2xl md:text-3xl text-plasma-white">
@@ -118,13 +118,13 @@ export function CapabilityModal({ capability, onClose }: CapabilityModalProps) {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               {/* Use Cases */}
               <div>
-                <h3 className="text-sm font-medium text-velex-blue uppercase tracking-wider mb-3">
+                <h3 className="text-sm font-medium text-ixra-blue uppercase tracking-wider mb-3">
                   Use Cases
                 </h3>
                 <ul className="space-y-2">
                   {capability.extendedInfo.useCases.map((useCase, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm text-titanium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-velex-blue mt-1.5 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-ixra-blue mt-1.5 flex-shrink-0" />
                       {useCase}
                     </li>
                   ))}
@@ -133,7 +133,7 @@ export function CapabilityModal({ capability, onClose }: CapabilityModalProps) {
 
               {/* Technical Details */}
               <div>
-                <h3 className="text-sm font-medium text-velex-blue uppercase tracking-wider mb-3">
+                <h3 className="text-sm font-medium text-ixra-blue uppercase tracking-wider mb-3">
                   Technical Details
                 </h3>
                 <ul className="space-y-2">
@@ -155,7 +155,7 @@ export function CapabilityModal({ capability, onClose }: CapabilityModalProps) {
               <div className="flex flex-wrap gap-6">
                 {Object.entries(capability.stats).map(([key, value]) => (
                   <div key={key}>
-                    <p className="font-numbers text-lg text-velex-blue">{value}</p>
+                    <p className="font-numbers text-lg text-ixra-blue">{value}</p>
                     <p className="text-xs text-titanium capitalize">
                       {key.replace(/([A-Z])/g, ' $1').trim()}
                     </p>
@@ -170,14 +170,14 @@ export function CapabilityModal({ capability, onClose }: CapabilityModalProps) {
             <div className="flex gap-4 justify-end">
               <button
                 onClick={onClose}
-                className="px-6 py-2 border border-titanium/30 text-titanium rounded-lg hover:border-velex-blue hover:text-plasma-white transition-colors"
+                className="px-6 py-2 border border-titanium/30 text-titanium rounded-lg hover:border-ixra-blue hover:text-plasma-white transition-colors"
               >
                 Close
               </button>
               <a
                 href="#contact"
                 onClick={onClose}
-                className="px-6 py-2 bg-velex-blue text-void font-medium rounded-lg hover:bg-electric-cyan transition-colors"
+                className="px-6 py-2 bg-ixra-blue text-void font-medium rounded-lg hover:bg-electric-cyan transition-colors"
               >
                 Start Your Project
               </a>

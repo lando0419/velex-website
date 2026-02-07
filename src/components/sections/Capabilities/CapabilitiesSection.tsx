@@ -167,14 +167,14 @@ export function CapabilitiesSection() {
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-            THE <span className="text-velex-blue">ARSENAL</span>
+            THE <span className="text-ixra-blue">ARSENAL</span>
           </h2>
           <p className="text-xl text-titanium max-w-2xl mx-auto">
             Every project includes all six simulation types.
             No picking and choosing—we run them all.
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-velex-blue/10 border border-velex-blue/30 rounded-full">
-            <span className="text-velex-blue font-medium">✓ All included</span>
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-ixra-blue/10 border border-ixra-blue/30 rounded-full">
+            <span className="text-ixra-blue font-medium">✓ All included</span>
             <span className="text-titanium/70 text-sm">in every engineering package</span>
           </div>
         </motion.div>

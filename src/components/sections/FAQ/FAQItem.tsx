@@ -17,14 +17,14 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
       className={cn(
         'rounded-lg border transition-colors duration-200',
         isOpen
-          ? 'border-velex-blue/50 bg-velex-blue/5'
+          ? 'border-ixra-blue/50 bg-ixra-blue/5'
           : 'border-titanium/20 bg-void hover:border-titanium/40'
       )}
     >
       <button
         id={`faq-question-${item.id}`}
         onClick={onToggle}
-        className="flex items-center justify-between w-full p-4 text-left rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-velex-blue"
+        className="flex items-center justify-between w-full p-4 text-left rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ixra-blue"
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${item.id}`}
       >
@@ -41,7 +41,7 @@ export function FAQItem({ item, isOpen, onToggle }: FAQItemProps) {
         >
           <ChevronDown className={cn(
             'w-5 h-5 transition-colors',
-            isOpen ? 'text-velex-blue' : 'text-titanium'
+            isOpen ? 'text-ixra-blue' : 'text-titanium'
           )} />
         </motion.div>
       </button>

@@ -26,10 +26,10 @@ export function EstimateCard({ data }: EstimateCardProps) {
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="rounded-xl border border-velex-blue/30 bg-velex-blue/5 overflow-hidden"
+      className="rounded-xl border border-ixra-blue/30 bg-ixra-blue/5 overflow-hidden"
     >
       {/* Header */}
-      <div className="px-4 py-2.5 bg-velex-blue/10 border-b border-velex-blue/20">
+      <div className="px-4 py-2.5 bg-ixra-blue/10 border-b border-ixra-blue/20">
         <h4 className="font-headline text-sm text-plasma-white flex items-center gap-2">
           <span className="text-base">🔧</span>
           {data.title}
@@ -40,8 +40,8 @@ export function EstimateCard({ data }: EstimateCardProps) {
       <div className="p-4 space-y-3">
         {/* Cost */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-velex-blue/10 flex items-center justify-center">
-            <DollarSign className="w-4 h-4 text-velex-blue" />
+          <div className="w-8 h-8 rounded-lg bg-ixra-blue/10 flex items-center justify-center">
+            <DollarSign className="w-4 h-4 text-ixra-blue" />
           </div>
           <div>
             <p className="text-[10px] text-titanium/60 uppercase tracking-wider">Cost Estimate</p>
@@ -53,8 +53,8 @@ export function EstimateCard({ data }: EstimateCardProps) {
 
         {/* Timeline */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-velex-blue/10 flex items-center justify-center">
-            <Clock className="w-4 h-4 text-velex-blue" />
+          <div className="w-8 h-8 rounded-lg bg-ixra-blue/10 flex items-center justify-center">
+            <Clock className="w-4 h-4 text-ixra-blue" />
           </div>
           <div>
             <p className="text-[10px] text-titanium/60 uppercase tracking-wider">Timeline</p>
@@ -65,8 +65,8 @@ export function EstimateCard({ data }: EstimateCardProps) {
         {/* Weight (if provided) */}
         {data.weight && (
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-velex-blue/10 flex items-center justify-center">
-              <Scale className="w-4 h-4 text-velex-blue" />
+            <div className="w-8 h-8 rounded-lg bg-ixra-blue/10 flex items-center justify-center">
+              <Scale className="w-4 h-4 text-ixra-blue" />
             </div>
             <div>
               <p className="text-[10px] text-titanium/60 uppercase tracking-wider">Est. Weight</p>

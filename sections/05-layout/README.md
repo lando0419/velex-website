@@ -48,7 +48,7 @@ interface HeaderProps {
 
 ### Content
 ```
-VELEX
+IXRA
 
 [Navigation]     [Resources]      [Company]
 Capabilities     Documentation    About
@@ -57,7 +57,7 @@ Showcase         FAQ              Careers
 
 [LinkedIn] [Twitter] [GitHub]
 
-© 2026 VELEX Engineering. Precision is the standard.
+© 2026 IXRA Engineering. Precision is the standard.
 ```
 
 ### Styling

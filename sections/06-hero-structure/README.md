@@ -53,7 +53,7 @@ Precision you can trust. Speed you need.
 ```
 
 ### Typography
-- "VELEX": Bebas Neue or Exo 2, massive, letter-spaced
+- "IXRA": Bebas Neue or Exo 2, massive, letter-spaced
 - Tagline: Inter, medium weight
 - CTAs: Button components from Section 03
 

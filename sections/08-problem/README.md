@@ -46,7 +46,7 @@ The gap: Unacceptable
 
 ### Split Screen
 - Left: "The Old Way" (grayscale, static)
-- Right: "The VELEX Way" (full color, dynamic)
+- Right: "The IXRA Way" (full color, dynamic)
 
 ### Left Side (Before)
 - Grayscale filter
@@ -55,7 +55,7 @@ The gap: Unacceptable
 - Frustrated visuals
 
 ### Right Side (After)
-- Full color, VELEX palette
+- Full color, IXRA palette
 - Instant results
 - GPU cores lighting up
 - Energy and speed

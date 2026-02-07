@@ -13,9 +13,9 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 const variantStyles: Record<CardVariant, string> = {
   base: 'bg-void/50 border border-titanium/20 shadow-lg',
   interactive:
-    'bg-void/50 border border-titanium/20 shadow-lg cursor-pointer transition-all duration-300 ease-default hover:-translate-y-1 hover:shadow-xl hover:border-titanium/40 active:scale-[0.99] active:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velex-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100',
+    'bg-void/50 border border-titanium/20 shadow-lg cursor-pointer transition-all duration-300 ease-default hover:-translate-y-1 hover:shadow-xl hover:border-titanium/40 active:scale-[0.99] active:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100',
   featured:
-    'bg-void/80 border border-velex-blue/30 shadow-lg shadow-velex-blue/10 transition-all duration-300 ease-default hover:border-velex-blue/50 hover:shadow-velex-blue/20',
+    'bg-void/80 border border-ixra-blue/30 shadow-lg shadow-ixra-blue/10 transition-all duration-300 ease-default hover:border-ixra-blue/50 hover:shadow-ixra-blue/20',
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(

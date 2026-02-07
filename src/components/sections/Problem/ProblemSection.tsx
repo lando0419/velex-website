@@ -43,7 +43,7 @@ export function ProblemSection() {
             CPUs grind through yesterday&apos;s math.
             <br />
             Your GPU sits idle.{' '}
-            <span className="text-velex-blue">Thousands of cores. Wasted.</span>
+            <span className="text-ixra-blue">Thousands of cores. Wasted.</span>
           </p>
         </motion.div>
 
@@ -63,7 +63,7 @@ export function ProblemSection() {
           />
           <div className="hidden md:block h-16 w-px bg-titanium/30" />
           <TimeCounter
-            label="With VELEX"
+            label="With IXRA"
             fromSeconds={14400}
             toSeconds={127}
             isActive={isInView}

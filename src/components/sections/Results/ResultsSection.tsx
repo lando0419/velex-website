@@ -20,7 +20,7 @@ export function ResultsSection() {
     >
       {/* Subtle glow background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-velex-blue/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-ixra-blue/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 max-w-4xl relative">
@@ -31,7 +31,7 @@ export function ResultsSection() {
           transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-            PERFORMANCE THAT <span className="text-velex-blue">SPEAKS</span>
+            PERFORMANCE THAT <span className="text-ixra-blue">SPEAKS</span>
           </h2>
           <p className="text-xl text-titanium max-w-2xl mx-auto">
             Numbers don&apos;t lie. Neither do we.

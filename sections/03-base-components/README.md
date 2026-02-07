@@ -110,7 +110,7 @@ interface BadgeProps {
 ```typescript
 interface SpinnerProps {
   size: 'sm' | 'md' | 'lg'
-  color?: string  // defaults to velex-blue
+  color?: string  // defaults to ixra-blue
 }
 ```
 

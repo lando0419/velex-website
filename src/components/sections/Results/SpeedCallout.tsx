@@ -43,7 +43,7 @@ export function SpeedCallout({ isInView }: SpeedCalloutProps) {
           repeatType: 'reverse',
         }}
       >
-        <span className="font-headline text-5xl md:text-7xl text-velex-blue">
+        <span className="font-headline text-5xl md:text-7xl text-ixra-blue">
           {isInView && !prefersReducedMotion ? (
             <CountUp end={120} duration={2000} suffix="x" />
           ) : (

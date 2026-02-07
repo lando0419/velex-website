@@ -78,7 +78,7 @@ Solve Time: 127s
 When expanded:
 - Full Blender render gallery
 - Problem statement
-- VELEX solution
+- IXRA solution
 - Results comparison
 - Testimonial (if available)
 

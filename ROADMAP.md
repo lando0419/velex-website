@@ -1,4 +1,4 @@
-# VELEX Website Build Roadmap
+# IXRA Website Build Roadmap
 
 ## Overview
 
@@ -257,4 +257,4 @@ Before moving to next phase:
 
 Start with Section 01. Read the README.md in each section folder for specific requirements.
 
-**Command**: `cd ~/velex-website && npm run dev`
+**Command**: `cd ~/ixra-website && npm run dev`

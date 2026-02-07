@@ -1,5 +1,5 @@
 /**
- * VELEX Shared TypeScript Types
+ * IXRA Shared TypeScript Types
  */
 
 export type Variant = 'primary' | 'secondary' | 'ghost' | 'danger'

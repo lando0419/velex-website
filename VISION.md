@@ -1,10 +1,10 @@
-# VELEX Website Vision Document
+# IXRA Website Vision Document
 
 ## The Standard
 
 > **"Every pixel is intentional. Every animation tells a story. Every micro-interaction creates a moment."**
 
-This is not a website. This is **the standard** for engineering simulation presentation. When visitors arrive, they don't just see VELEX - they feel the precision, the power, the obsession with detail that defines world-class engineering.
+This is not a website. This is **the standard** for engineering simulation presentation. When visitors arrive, they don't just see IXRA - they feel the precision, the power, the obsession with detail that defines world-class engineering.
 
 ---
 
@@ -64,7 +64,7 @@ If any answer is NO, it's not done.
 
 ```
 VOID BLACK:      #050508  (background)
-VELEX BLUE:      #00d4ff  (primary accent)
+IXRA BLUE:      #00d4ff  (primary accent)
 ELECTRIC CYAN:   #00fff2  (highlights)
 PLASMA WHITE:    #f0f8ff  (text)
 
@@ -142,4 +142,4 @@ This easing is "the feel" - don't change it.
 
 Engineers will visit this site. Billionaires will visit this site. They notice craftsmanship. They appreciate precision. They can tell the difference between "good enough" and "exceptional."
 
-This is the obsession. This is the standard. This is VELEX.
+This is the obsession. This is the standard. This is IXRA.

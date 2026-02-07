@@ -30,7 +30,7 @@ export function EnergyLine({ isActive, delay, orientation }: EnergyLineProps) {
       <motion.div
         className={`absolute ${
           isHorizontal ? 'h-full left-0' : 'w-full top-0'
-        } bg-gradient-to-r from-velex-blue to-electric-cyan rounded-full`}
+        } bg-gradient-to-r from-ixra-blue to-electric-cyan rounded-full`}
         initial={isHorizontal ? { width: 0 } : { height: 0 }}
         animate={
           isActive
