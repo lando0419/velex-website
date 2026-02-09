@@ -84,12 +84,6 @@ export function ResultReveal({ project, onReset }: ResultRevealProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.6, duration: 0.5 }}
       >
-        <a
-          href="#contact"
-          className="bg-ixra-blue text-void hover:bg-electric-cyan rounded-lg px-8 py-3 font-medium transition-colors"
-        >
-          Start Your Project
-        </a>
         <button
           onClick={onReset}
           className="border-titanium/30 text-titanium hover:border-ixra-blue hover:text-plasma-white rounded-lg border px-8 py-3 transition-colors"

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -10,6 +9,7 @@ const NAV_ITEMS = [
   { href: '#capabilities', label: 'Capabilities', sectionId: 'capabilities' },
   { href: '#showcase', label: 'Showcase', sectionId: 'showcase' },
   { href: '#pricing', label: 'Pricing', sectionId: 'pricing' },
+  { href: '#about', label: 'About', sectionId: 'about' },
   { href: '#faq', label: 'FAQ', sectionId: 'faq' },
 ]
 
@@ -78,16 +78,16 @@ export function Header() {
         )}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 3.0, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.5, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
       >
         <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link
-            href="/"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="font-accent text-xl tracking-[0.2em] text-plasma-white hover:text-ixra-blue transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ixra-blue focus-visible:ring-offset-2 focus-visible:ring-offset-void rounded"
           >
             IXRA
-          </Link>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">

@@ -8,7 +8,7 @@ import { useReducedMotion } from '@/hooks'
 
 export function ProblemSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const isInView = useInView(sectionRef, { once: true, margin: '-20%' })
+  const isInView = useInView(sectionRef, { once: false, margin: '-20%' })
   const prefersReducedMotion = useReducedMotion()
 
   return (

@@ -3,7 +3,6 @@ import { inter, exo2, jetbrainsMono, bebasNeue, spaceMono } from './fonts'
 import { SmoothScrollProvider } from '@/components/providers'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { FloatingCTA } from '@/components/layout/FloatingCTA'
 import { ChatWidget } from '@/components/chat'
 import { ScrollProgress } from '@/components/ui'
 import './globals.css'
@@ -86,7 +85,6 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
-          <FloatingCTA />
           <ChatWidget />
         </SmoothScrollProvider>
       </body>

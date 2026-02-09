@@ -25,6 +25,13 @@ export function OldWay({ isActive }: OldWayProps) {
   const [isShattered, setIsShattered] = useState(false)
   const fragments = useMemo(() => generateFragments(8), [])
 
+  // Reset when section leaves view
+  useEffect(() => {
+    if (!isActive) {
+      setIsShattered(false)
+    }
+  }, [isActive])
+
   // Trigger shatter effect after content is shown
   useEffect(() => {
     if (!isActive) return

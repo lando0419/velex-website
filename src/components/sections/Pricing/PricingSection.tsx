@@ -52,6 +52,21 @@ const FULL_SERVICE_TIERS: PricingTier[] = [
   },
 ]
 
+// Rendering Services
+const RENDERING_TIERS: PricingTier[] = [
+  {
+    id: 'render-package',
+    name: 'Per Render Package',
+    priceRange: '$500 - $2,000',
+    features: [
+      'Photorealistic product renders',
+      'Simulation visualization & overlays',
+      'Animation & exploded views',
+      'Marketing-ready assets',
+    ],
+  },
+]
+
 // Simulation-Only: Customer provides CAD, we simulate
 const SIM_ONLY_TIERS: PricingTier[] = [
   {
@@ -157,6 +172,37 @@ export function PricingSection() {
                 transition={{
                   duration: prefersReducedMotion ? 0 : 0.6,
                   delay: prefersReducedMotion ? 0 : 0.6 + index * 0.1,
+                  ease: [0.4, 0, 0.2, 1],
+                }}
+              >
+                <PricingCard tier={tier} />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Rendering Services */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.7 }}
+        >
+          <h3 className="font-headline text-2xl text-plasma-white text-center mb-2">
+            Rendering Services
+          </h3>
+          <p className="text-titanium text-center mb-8">
+            Photorealistic renders and simulation visualizations for your products
+          </p>
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+            {RENDERING_TIERS.map((tier) => (
+              <motion.div
+                key={tier.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : 0.6,
+                  delay: prefersReducedMotion ? 0 : 0.8,
                   ease: [0.4, 0, 0.2, 1],
                 }}
               >

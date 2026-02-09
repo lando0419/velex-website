@@ -92,20 +92,13 @@ function IndustryModal({ industry, onClose }: { industry: Industry; onClose: () 
               {industry.extendedInfo}
             </p>
           </div>
-          <div className="p-4 border-t border-titanium/20 bg-titanium/5 flex gap-4 justify-end">
+          <div className="p-4 border-t border-titanium/20 bg-titanium/5 flex justify-end">
             <button
               onClick={onClose}
               className="px-6 py-2 border border-titanium/30 text-titanium rounded-lg hover:border-ixra-blue hover:text-plasma-white transition-colors"
             >
               Close
             </button>
-            <a
-              href="#contact"
-              onClick={onClose}
-              className="px-6 py-2 bg-ixra-blue text-void font-medium rounded-lg hover:bg-electric-cyan transition-colors"
-            >
-              Start Your Project
-            </a>
           </div>
         </motion.div>
       </motion.div>

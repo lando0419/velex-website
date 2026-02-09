@@ -86,7 +86,7 @@ function ComparisonScene() {
       </mesh>
 
       <OrbitControls
-        enableZoom={true}
+        enableZoom={false}
         enablePan={false}
         minDistance={3}
         maxDistance={10}

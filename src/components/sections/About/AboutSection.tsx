@@ -8,23 +8,23 @@ import { useReducedMotion } from '@/hooks'
 const TRUST_SIGNALS = [
   {
     icon: Clock,
-    title: '24-Hour Response',
-    description: 'Every inquiry answered within one business day',
+    title: 'Days, Not Weeks',
+    description: 'Average turnaround: 48 hours from specs to deliverables',
   },
   {
     icon: Shield,
-    title: 'NDA Ready',
-    description: 'Your IP protected from day one',
+    title: 'NDA From Day One',
+    description: 'Your IP is locked down before we touch a single file',
   },
   {
     icon: Cpu,
-    title: '100x Faster',
-    description: 'GPU-accelerated simulation vs traditional',
+    title: 'GPU-Accelerated',
+    description: 'Thousands of CUDA cores running your simulation, not a laptop',
   },
   {
     icon: Users,
-    title: 'All 6 Sims Included',
-    description: 'Structural, thermal, CFD, modal, topology, multi-physics',
+    title: 'Full Stack',
+    description: 'CAD, FEA, CFD, thermal, modal, topology — all in-house',
   },
 ]
 
@@ -61,10 +61,10 @@ export function AboutSection() {
             transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
             <h2 className="font-headline text-4xl md:text-6xl text-plasma-white mb-4">
-              WHO WE <span className="text-ixra-blue">ARE</span>
+              WE DON&apos;T CONSULT. <span className="text-ixra-blue">WE BUILD.</span>
             </h2>
             <p className="text-xl text-titanium max-w-2xl mx-auto">
-              Engineers who got tired of waiting weeks for simulation results.
+              Engineers, not advisors. We do the work.
             </p>
           </motion.div>
 
@@ -82,18 +82,21 @@ export function AboutSection() {
             <div className="bg-titanium/5 border border-titanium/20 rounded-xl p-8 md:p-10">
               <div className="prose prose-invert max-w-none">
                 <p className="text-lg text-titanium leading-relaxed mb-6">
-                  <span className="text-plasma-white font-medium">IXRA</span> is a GPU-accelerated
-                  engineering simulation company founded in <span className="text-ixra-blue font-medium">2024</span>.
-                  We started because traditional FEA consulting takes too long and costs too much.
+                  Most engineering firms hand you a report and a bill.{' '}
+                  <span className="text-plasma-white font-medium">IXRA</span> hands you a finished design
+                  with validated simulation data — ready to manufacture.
                 </p>
                 <p className="text-lg text-titanium leading-relaxed mb-6">
-                  Our team combines <span className="text-plasma-white">formal engineering backgrounds</span> in
-                  aerospace and mechanical engineering with <span className="text-plasma-white">hands-on project experience</span> across
-                  robotics, automotive, drones, and medical devices.
+                  We run <span className="text-ixra-blue font-medium">GPU-accelerated simulations</span> that
+                  finish in minutes, not hours. That speed means more design iterations, tighter optimization,
+                  and <span className="text-plasma-white">better parts delivered faster</span> than anyone
+                  running legacy CPU workflows.
                 </p>
                 <p className="text-lg text-titanium leading-relaxed">
-                  We&apos;re a <span className="text-ixra-blue">fully remote team</span> that moves fast.
-                  You describe what you need. We design, simulate, validate, and deliver—in days, not weeks.
+                  From aerospace brackets to robotic end-effectors, we&apos;ve delivered{' '}
+                  <span className="text-plasma-white">47+ projects</span> across five industries.
+                  You send specs. We send back engineered, validated, ready-to-build deliverables.{' '}
+                  <span className="text-ixra-blue">That&apos;s it.</span>
                 </p>
               </div>
             </div>

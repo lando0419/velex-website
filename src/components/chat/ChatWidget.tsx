@@ -16,7 +16,7 @@ export function ChatWidget() {
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           'fixed bottom-6 right-6 z-50',
-          'w-14 h-14 rounded-full',
+          'w-11 h-11 md:w-14 md:h-14 rounded-full',
           'bg-ixra-blue text-void',
           'flex items-center justify-center',
           'shadow-lg shadow-ixra-blue/25',
@@ -38,7 +38,7 @@ export function ChatWidget() {
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.15 }}
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 md:w-6 md:h-6" />
             </motion.div>
           ) : (
             <motion.div
@@ -48,7 +48,7 @@ export function ChatWidget() {
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.15 }}
             >
-              <MessageCircle className="w-6 h-6" />
+              <MessageCircle className="w-5 h-5 md:w-6 md:h-6" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -56,7 +56,7 @@ export function ChatWidget() {
         {/* Pulsing indicator when closed */}
         {!isOpen && (
           <motion.span
-            className="absolute -top-1 -right-1 w-4 h-4 bg-success-green rounded-full border-2 border-void"
+            className="absolute -top-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-success-green rounded-full border-2 border-void"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [1, 0.8, 1],
