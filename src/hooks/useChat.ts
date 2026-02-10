@@ -36,7 +36,7 @@ async function callChatAPI(history: { role: string; content: string }[]): Promis
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ messages: history }),
-  }, 25000)
+  }, 55000)
 
   const data = await res.json()
   return data.content || data.error || ''

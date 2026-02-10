@@ -1,7 +1,6 @@
 import OpenAI from 'openai'
 
-export const runtime = 'edge'
-export const maxDuration = 30
+export const maxDuration = 60
 
 const SYSTEM_PROMPT = `You are the IXRA Engineering assistant. You are an engineer, not a salesperson.
 
