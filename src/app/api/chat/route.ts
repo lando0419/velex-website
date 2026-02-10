@@ -1,8 +1,6 @@
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
+export const runtime = 'edge'
 
 const SYSTEM_PROMPT = `You are the IXRA Engineering assistant on ixra.tech. You help potential clients scope engineering projects and get quotes.
 
@@ -41,11 +39,15 @@ export async function POST(request: Request) {
     const { messages } = await request.json()
 
     if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'sk-your-key-here') {
-      return Response.json(
-        { error: 'OpenAI API key not configured' },
-        { status: 500 }
+      return new Response(
+        JSON.stringify({ error: 'OpenAI API key not configured' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
       )
     }
+
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
 
     const stream = await openai.chat.completions.create({
       model: 'gpt-5-nano-2025-08-07',
@@ -75,9 +77,9 @@ export async function POST(request: Request) {
     })
   } catch (error) {
     console.error('Chat API error:', error)
-    return Response.json(
-      { error: 'Failed to generate response' },
-      { status: 500 }
+    return new Response(
+      JSON.stringify({ error: 'Failed to generate response' }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
     )
   }
 }
