@@ -13,7 +13,7 @@ interface UseChatReturn {
 const INITIAL_MESSAGE: Message = {
   id: 'welcome',
   role: 'assistant',
-  content: "Hey — I'm the IXRA assistant. Tell me what you're building and I'll scope it out with cost, timeline, and material recommendations.",
+  content: "Hey — I'm the IXRA assistant. Tell me what you're building and I'll help scope it out.",
   timestamp: new Date(),
 }
 
@@ -21,13 +21,36 @@ function generateId(): string {
   return Math.random().toString(36).substring(2, 9)
 }
 
+async function fetchWithTimeout(url: string, options: RequestInit, timeoutMs: number): Promise<Response> {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
+  try {
+    return await fetch(url, { ...options, signal: controller.signal })
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
+async function callChatAPI(history: { role: string; content: string }[]): Promise<string> {
+  const res = await fetchWithTimeout('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages: history }),
+  }, 25000)
+
+  const data = await res.json()
+  return data.content || data.error || ''
+}
+
 export function useChat(): UseChatReturn {
   const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE])
   const [isTyping, setIsTyping] = useState(false)
-  const abortRef = useRef<AbortController | null>(null)
+  const activeRef = useRef(false)
 
   const sendMessage = useCallback(async (content: string) => {
-    // Add user message
+    if (activeRef.current) return
+    activeRef.current = true
+
     const userMessage: Message = {
       id: generateId(),
       role: 'user',
@@ -35,58 +58,38 @@ export function useChat(): UseChatReturn {
       timestamp: new Date(),
     }
 
-    const assistantId = generateId()
-    const assistantMessage: Message = {
-      id: assistantId,
-      role: 'assistant',
-      content: '',
-      timestamp: new Date(),
-    }
-
     setMessages((prev) => [...prev, userMessage])
     setIsTyping(true)
 
-    // Build conversation history for API (exclude welcome metadata)
     const history = [...messages, userMessage].map((m) => ({
       role: m.role,
       content: m.content,
     }))
 
-    try {
-      abortRef.current?.abort()
-      abortRef.current = new AbortController()
+    let responseContent = ''
 
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history }),
-        signal: abortRef.current.signal,
-      })
-
-      if (!res.ok) {
-        throw new Error('API request failed')
+    // Try up to 2 times
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        responseContent = await callChatAPI(history)
+        if (responseContent) break
+      } catch {
+        if (attempt === 1) break
       }
-
-      const data = await res.json()
-      setIsTyping(false)
-      setMessages((prev) => [
-        ...prev,
-        { ...assistantMessage, content: data.content },
-      ])
-    } catch (error) {
-      if ((error as Error).name === 'AbortError') return
-
-      setIsTyping(false)
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: assistantId,
-          role: 'assistant',
-          content: "Something went wrong. Try again, or reach out directly at LandonKancir@Ixra.tech.",
-          timestamp: new Date(),
-        },
-      ])
     }
+
+    setIsTyping(false)
+    activeRef.current = false
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: generateId(),
+        role: 'assistant',
+        content: responseContent || 'Response failed. Try again or email LandonKancir@Ixra.tech.',
+        timestamp: new Date(),
+      },
+    ])
   }, [messages])
 
   const transferToForm = useCallback(() => {
@@ -95,13 +98,15 @@ export function useChat(): UseChatReturn {
       contactSection.scrollIntoView({ behavior: 'smooth' })
     }
 
-    const confirmMessage: Message = {
-      id: generateId(),
-      role: 'assistant',
-      content: "Scrolled you to the contact form. Fill in your info and we'll get back to you within 24 hours.",
-      timestamp: new Date(),
-    }
-    setMessages((prev) => [...prev, confirmMessage])
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: generateId(),
+        role: 'assistant',
+        content: "Scrolled you to the contact form. Fill in your info and we'll get back to you within 24 hours.",
+        timestamp: new Date(),
+      },
+    ])
   }, [])
 
   return {
