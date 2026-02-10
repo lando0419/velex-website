@@ -54,7 +54,7 @@ export async function POST(request: Request) {
         ...messages,
       ],
       stream: true,
-      max_tokens: 300,
+      max_completion_tokens: 300,
     })
 
     const encoder = new TextEncoder()
