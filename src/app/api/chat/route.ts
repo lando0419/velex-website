@@ -45,6 +45,7 @@ export async function POST(request: Request) {
         ...trimmed,
       ],
       max_completion_tokens: 16384,
+      reasoning_effort: 'medium',
     })
 
     const content = completion.choices[0]?.message?.content
