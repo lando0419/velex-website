@@ -55,7 +55,7 @@ export async function POST(request: Request) {
         { role: 'system', content: SYSTEM_PROMPT },
         ...messages,
       ],
-      max_completion_tokens: 300,
+      max_completion_tokens: 1024,
     })
 
     const content = completion.choices[0]?.message?.content || 'Sorry, I could not generate a response.'
