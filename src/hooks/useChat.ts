@@ -67,25 +67,12 @@ export function useChat(): UseChatReturn {
         throw new Error('API request failed')
       }
 
-      // Add empty assistant message, then stream into it
-      setMessages((prev) => [...prev, assistantMessage])
+      const data = await res.json()
       setIsTyping(false)
-
-      const reader = res.body?.getReader()
-      const decoder = new TextDecoder()
-
-      if (reader) {
-        let accumulated = ''
-        while (true) {
-          const { done, value } = await reader.read()
-          if (done) break
-          accumulated += decoder.decode(value, { stream: true })
-          const current = accumulated
-          setMessages((prev) =>
-            prev.map((m) => (m.id === assistantId ? { ...m, content: current } : m))
-          )
-        }
-      }
+      setMessages((prev) => [
+        ...prev,
+        { ...assistantMessage, content: data.content },
+      ])
     } catch (error) {
       if ((error as Error).name === 'AbortError') return
 

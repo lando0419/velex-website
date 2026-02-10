@@ -49,32 +49,21 @@ export async function POST(request: Request) {
       apiKey: process.env.OPENAI_API_KEY,
     })
 
-    const stream = await openai.chat.completions.create({
+    const completion = await openai.chat.completions.create({
       model: 'gpt-5-nano-2025-08-07',
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         ...messages,
       ],
-      stream: true,
       max_completion_tokens: 300,
     })
 
-    const encoder = new TextEncoder()
-    const readable = new ReadableStream({
-      async start(controller) {
-        for await (const chunk of stream) {
-          const content = chunk.choices[0]?.delta?.content
-          if (content) {
-            controller.enqueue(encoder.encode(content))
-          }
-        }
-        controller.close()
-      },
-    })
+    const content = completion.choices[0]?.message?.content || 'Sorry, I could not generate a response.'
 
-    return new Response(readable, {
-      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-    })
+    return new Response(
+      JSON.stringify({ content }),
+      { headers: { 'Content-Type': 'application/json' } }
+    )
   } catch (error) {
     console.error('Chat API error:', error)
     return new Response(
