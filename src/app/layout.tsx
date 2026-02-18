@@ -5,6 +5,8 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ChatWidget } from '@/components/chat'
 import { ScrollProgress } from '@/components/ui'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -87,6 +89,8 @@ export default function RootLayout({
           <Footer />
           <ChatWidget />
         </SmoothScrollProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
