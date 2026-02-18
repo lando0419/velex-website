@@ -38,6 +38,10 @@ async function callChatAPI(history: { role: string; content: string }[]): Promis
     body: JSON.stringify({ messages: history }),
   }, 55000)
 
+  if (res.status === 429) {
+    return "You've hit the message limit. Email LandonKancir@Ixra.tech for a detailed conversation."
+  }
+
   const data = await res.json()
   return data.content || data.error || ''
 }

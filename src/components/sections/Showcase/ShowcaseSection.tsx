@@ -6,6 +6,7 @@ import { FilterBar } from './FilterBar'
 import { MasonryGrid } from './MasonryGrid'
 import { DemoModal } from './DemoModal'
 import { useReducedMotion } from '@/hooks'
+import { PROJECTS } from '@/data/projects'
 
 export interface DemoImage {
   src: string
@@ -46,89 +47,15 @@ export interface GalleryItem {
   }
 }
 
-const GALLERY_ITEMS: GalleryItem[] = [
-  {
-    id: 1,
-    title: 'UR10e Robot Adapter',
-    category: 'robotics',
-    description: 'Custom end-effector adapter for Universal Robots UR10e. Designed for high-precision pick-and-place applications with integrated cable management.',
-    image: '/demos/ur10e-adapter/hero.webp',
-    status: 'in-progress',
-    stats: { payload: '12.5 kg', stiffness: '+34%', weight: '0.42 kg' },
-  },
-  {
-    id: 2,
-    title: 'Racing Drone Frame',
-    category: 'drones',
-    description: 'Lightweight 5-inch racing drone frame optimized for FPV competition. Carbon fiber layup with integrated vibration dampening.',
-    image: '/demos/drone-frame/hero.webp',
-    status: 'in-progress',
-    stats: { weight: '128g', thrust: '4:1', durability: 'A+' },
-  },
-  {
-    id: 3,
-    title: 'Suspension A-Arm',
-    category: 'automotive',
-    description: 'Performance suspension component for track-day vehicles. Topology-optimized for minimum weight with maximum stiffness.',
-    image: '/demos/suspension-arm/hero.webp',
-    status: 'in-progress',
-    stats: { reduction: '-42%', stiffness: '+18%', cycles: '500k+' },
-  },
-  {
-    id: 4,
-    title: 'Satellite Bracket',
-    category: 'aerospace',
-    description: 'Flight-qualified mounting bracket for CubeSat payloads. Designed for space environment with thermal cycling considerations.',
-    image: '/demos/satellite-bracket/hero.webp',
-    status: 'in-progress',
-    stats: { mass: '86g', tempRange: '-40°C to +85°C', FoS: '3.2' },
-  },
-  {
-    id: 5,
-    title: 'Industrial Gripper',
-    category: 'robotics',
-    description: 'Pneumatic parallel gripper for manufacturing automation. High-cycle life with integrated force sensing mounting.',
-    image: '/demos/gripper/hero.webp',
-    status: 'coming-soon',
-    stats: { force: '120N', cycles: '2M+', repeatability: '±0.02mm' },
-  },
-  {
-    id: 6,
-    title: 'E-Bike Motor Mount',
-    category: 'ev',
-    description: 'Mid-drive motor integration bracket for electric bicycle conversion. Heat-dissipating design with vibration isolation.',
-    image: '/demos/ebike-mount/hero.webp',
-    status: 'coming-soon',
-    stats: { power: '750W', cooling: '+45%', weight: '0.34 kg' },
-  },
-  {
-    id: 7,
-    title: 'Prosthetic Socket',
-    category: 'medical',
-    description: 'Custom-fit below-knee prosthetic socket. Patient-specific design from 3D scan data with comfort optimization.',
-    image: '/demos/prosthetic/hero.webp',
-    status: 'coming-soon',
-    stats: { fitScore: '98%', weight: '185g', comfort: 'A+' },
-  },
-  {
-    id: 8,
-    title: 'RC Car Chassis',
-    category: 'hobby',
-    description: '1/10 scale RC competition chassis plate. Impact-resistant design with optimized flex characteristics for handling.',
-    image: '/demos/rc-chassis/hero.webp',
-    status: 'coming-soon',
-    stats: { flex: 'Tuned', impact: '+60%', weight: '142g' },
-  },
-  {
-    id: 9,
-    title: 'Turbine Housing',
-    category: 'industrial',
-    description: 'High-temperature turbine scroll housing for turbocharger application. CFD-optimized flow paths with thermal management.',
-    image: '/demos/turbine-housing/hero.webp',
-    status: 'coming-soon',
-    stats: { flow: '+12%', temp: '950°C', efficiency: '87%' },
-  },
-]
+const GALLERY_ITEMS: GalleryItem[] = PROJECTS.map((p) => ({
+  id: p.id,
+  title: p.title,
+  category: p.category,
+  description: p.description,
+  image: p.image,
+  status: p.status,
+  stats: p.stats,
+}))
 
 export const FILTER_OPTIONS = [
   { id: 'all', label: 'All' },

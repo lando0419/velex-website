@@ -1,4 +1,6 @@
 import OpenAI from 'openai'
+import { headers } from 'next/headers'
+import { rateLimit, getClientIP } from '@/lib/rate-limit'
 
 export const maxDuration = 60
 
@@ -31,6 +33,31 @@ Pricing: single part $3-5k, assembly $8-15k, full system from $25k. Sim-only $50
 Contact: LandonKancir@Ixra.tech or the form on the page.`
 
 export async function POST(request: Request) {
+  const headersList = await headers()
+  const ip = getClientIP(headersList)
+  const limit = rateLimit(`chat:${ip}`, {
+    windowMs: 60 * 60 * 1000,
+    maxRequests: 20,
+  })
+
+  if (!limit.success) {
+    return new Response(
+      JSON.stringify({
+        content:
+          "You've sent a lot of messages. Take a break or email LandonKancir@Ixra.tech directly.",
+      }),
+      {
+        status: 429,
+        headers: {
+          'Content-Type': 'application/json',
+          'Retry-After': String(
+            Math.ceil((limit.resetAt - Date.now()) / 1000)
+          ),
+        },
+      }
+    )
+  }
+
   try {
     const { messages } = await request.json()
 

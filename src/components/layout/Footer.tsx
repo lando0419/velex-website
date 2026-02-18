@@ -31,7 +31,7 @@ const NAV_LINKS = [
 ]
 
 const RESOURCE_LINKS = [
-  { href: '#showcase', label: 'Case Studies' },
+  { href: '/case-studies', label: 'Case Studies' },
   { href: '#capabilities', label: 'Our Arsenal' },
   { href: '#faq', label: 'FAQ' },
 ]

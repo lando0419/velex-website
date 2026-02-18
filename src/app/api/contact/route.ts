@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
+import { headers } from 'next/headers'
 import nodemailer from 'nodemailer'
+import { rateLimit, getClientIP } from '@/lib/rate-limit'
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -26,6 +28,25 @@ function isValidEmail(email: string): boolean {
 }
 
 export async function POST(request: Request) {
+  const headersList = await headers()
+  const ip = getClientIP(headersList)
+  const limit = rateLimit(`contact:${ip}`, {
+    windowMs: 60 * 60 * 1000,
+    maxRequests: 5,
+  })
+
+  if (!limit.success) {
+    return NextResponse.json(
+      { error: 'Too many submissions. Email LandonKancir@Ixra.tech directly instead.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(Math.ceil((limit.resetAt - Date.now()) / 1000)),
+        },
+      }
+    )
+  }
+
   try {
     const data: ContactFormData = await request.json()
 

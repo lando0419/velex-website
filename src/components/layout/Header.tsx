@@ -3,11 +3,13 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 const NAV_ITEMS = [
   { href: '#capabilities', label: 'Capabilities', sectionId: 'capabilities' },
   { href: '#showcase', label: 'Showcase', sectionId: 'showcase' },
+  { href: '/case-studies', label: 'Case Studies', sectionId: '' },
   { href: '#pricing', label: 'Pricing', sectionId: 'pricing' },
   { href: '#about', label: 'About', sectionId: 'about' },
   { href: '#faq', label: 'FAQ', sectionId: 'faq' },
@@ -156,24 +158,41 @@ export function Header() {
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
-              {NAV_ITEMS.map((item, index) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={cn(
-                    'text-2xl font-headline transition-colors',
-                    activeSection === item.sectionId
-                      ? 'text-ixra-blue'
-                      : 'text-plasma-white hover:text-ixra-blue'
-                  )}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + index * 0.05 }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
+              {NAV_ITEMS.map((item, index) =>
+                item.href.startsWith('#') ? (
+                  <motion.a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={cn(
+                      'text-2xl font-headline transition-colors',
+                      activeSection === item.sectionId
+                        ? 'text-ixra-blue'
+                        : 'text-plasma-white hover:text-ixra-blue'
+                    )}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                  >
+                    {item.label}
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-2xl font-headline text-plasma-white hover:text-ixra-blue transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                )
+              )}
 
               <motion.a
                 href="#contact"
@@ -200,25 +219,36 @@ interface NavLinkProps {
 }
 
 function NavLink({ href, children, isActive }: NavLinkProps) {
-  return (
-    <a
-      href={href}
+  const className = cn(
+    'group relative text-sm transition-colors duration-200',
+    'focus-visible:outline-none',
+    isActive
+      ? 'text-plasma-white'
+      : 'text-titanium hover:text-plasma-white focus-visible:text-plasma-white'
+  )
+
+  const underline = (
+    <span
       className={cn(
-        'group relative text-sm transition-colors duration-200',
-        'focus-visible:outline-none',
-        isActive
-          ? 'text-plasma-white'
-          : 'text-titanium hover:text-plasma-white focus-visible:text-plasma-white'
+        'absolute -bottom-1 left-0 h-px bg-ixra-blue transition-all duration-300',
+        isActive ? 'w-full' : 'w-0 group-hover:w-full group-focus-visible:w-full'
       )}
-    >
+    />
+  )
+
+  if (href.startsWith('#')) {
+    return (
+      <a href={href} className={className}>
+        {children}
+        {underline}
+      </a>
+    )
+  }
+
+  return (
+    <Link href={href} className={className}>
       {children}
-      {/* Underline animation */}
-      <span
-        className={cn(
-          'absolute -bottom-1 left-0 h-px bg-ixra-blue transition-all duration-300',
-          isActive ? 'w-full' : 'w-0 group-hover:w-full group-focus-visible:w-full'
-        )}
-      />
-    </a>
+      {underline}
+    </Link>
   )
 }
