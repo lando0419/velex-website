@@ -28,6 +28,7 @@ const NAV_LINKS = [
   { href: '#capabilities', label: 'Capabilities' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#showcase', label: 'Showcase' },
+  { href: '/motorsport', label: 'Motorsport' },
 ]
 
 const RESOURCE_LINKS = [

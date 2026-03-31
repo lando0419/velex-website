@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { href: '#pricing', label: 'Pricing', sectionId: 'pricing' },
   { href: '#about', label: 'About', sectionId: 'about' },
   { href: '#faq', label: 'FAQ', sectionId: 'faq' },
+  { href: '/motorsport', label: 'Motorsport', sectionId: '' },
 ]
 
 export function Header() {
